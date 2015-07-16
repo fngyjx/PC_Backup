@@ -1,0 +1,3026 @@
+From: "Saved by Internet Explorer 11"
+Subject: HowTos/Xen/InstallingCentOSDomU - CentOS Wiki
+Date: Sat, 4 Jul 2015 14:19:05 -0500
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01D0B664.62558120"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7601.17609
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://wiki.centos.org/HowTos/Xen/InstallingCentOSDomU
+
+=EF=BB=BF<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" =
+"http://www.w3.org/TR/html4/strict.dtd"><HTML><HEAD><META=20
+content=3D"IE=3D11.0000" http-equiv=3D"X-UA-Compatible">
+=20
+<META http-equiv=3D"Content-Type" content=3D"text/html;charset=3Dutf-8"> =
+
+<META name=3D"robots" content=3D"index,nofollow">=20
+<TITLE>HowTos/Xen/InstallingCentOSDomU - CentOS Wiki</TITLE>=20
+<SCRIPT src=3D"http://wiki.centos.org/wiki/common/js/common.js" =
+type=3D"text/javascript"></SCRIPT>
+=20
+<SCRIPT type=3D"text/javascript">=0A=
+<!--// common functions=0A=
+=0A=
+// We keep here the state of the search box=0A=
+searchIsDisabled =3D false;=0A=
+=0A=
+function searchChange(e) {=0A=
+    // Update search buttons status according to search box content.=0A=
+    // Ignore empty or whitespace search term.=0A=
+    var value =3D e.value.replace(/\s+/, '');=0A=
+    if (value =3D=3D '' || searchIsDisabled) { =0A=
+        searchSetDisabled(true);=0A=
+    } else {=0A=
+        searchSetDisabled(false);=0A=
+    }=0A=
+}=0A=
+=0A=
+function searchSetDisabled(flag) {=0A=
+    // Enable or disable search=0A=
+    document.getElementById('fullsearch').disabled =3D flag;=0A=
+    document.getElementById('titlesearch').disabled =3D flag;=0A=
+}=0A=
+=0A=
+function searchFocus(e) {=0A=
+    // Update search input content on focus=0A=
+    if (e.value =3D=3D 'Search') {=0A=
+        e.value =3D '';=0A=
+        e.className =3D '';=0A=
+        searchIsDisabled =3D false;=0A=
+    }=0A=
+}=0A=
+=0A=
+function searchBlur(e) {=0A=
+    // Update search input content on blur=0A=
+    if (e.value =3D=3D '') {=0A=
+        e.value =3D 'Search';=0A=
+        e.className =3D 'disabled';=0A=
+        searchIsDisabled =3D true;=0A=
+    }=0A=
+}=0A=
+=0A=
+function actionsMenuInit(title) {=0A=
+    // Initialize action menu=0A=
+    for (i =3D 0; i < document.forms.length; i++) {=0A=
+        var form =3D document.forms[i];=0A=
+        if (form.className =3D=3D 'actionsmenu') {=0A=
+            // Check if this form needs update=0A=
+            var div =3D form.getElementsByTagName('div')[0];=0A=
+            var label =3D div.getElementsByTagName('label')[0];=0A=
+            if (label) {=0A=
+                // This is the first time: remove label and do buton.=0A=
+                div.removeChild(label);=0A=
+                var dobutton =3D div.getElementsByTagName('input')[0];=0A=
+                div.removeChild(dobutton);=0A=
+                // and add menu title=0A=
+                var select =3D div.getElementsByTagName('select')[0];=0A=
+                var item =3D document.createElement('option');=0A=
+                item.appendChild(document.createTextNode(title));=0A=
+                item.value =3D 'show';=0A=
+                select.insertBefore(item, select.options[0]);=0A=
+                select.selectedIndex =3D 0;=0A=
+            }=0A=
+        }=0A=
+    }=0A=
+}=0A=
+//-->=0A=
+</SCRIPT>
+ <LINK href=3D"http://wiki.centos.org/wiki/modern-CentOS/css/common.css" =
+rel=3D"stylesheet"=20
+type=3D"text/css" media=3D"all" charset=3D"utf-8"> <LINK =
+href=3D"http://wiki.centos.org/wiki/modern-CentOS/css/screen.css"=20
+rel=3D"stylesheet" type=3D"text/css" media=3D"screen" charset=3D"utf-8"> =
+<LINK href=3D"http://wiki.centos.org/wiki/modern-CentOS/css/print.css"=20
+rel=3D"stylesheet" type=3D"text/css" media=3D"print" charset=3D"utf-8"> =
+<LINK =
+href=3D"http://wiki.centos.org/wiki/modern-CentOS/css/projection.css"=20
+rel=3D"stylesheet" type=3D"text/css" media=3D"projection" =
+charset=3D"utf-8"> <!-- css only for MSIE browsers --> <!--[if IE]>=0A=
+   <link rel=3D"stylesheet" type=3D"text/css" charset=3D"utf-8" =
+media=3D"all" href=3D"/wiki/modern-CentOS/css/msie.css">=0A=
+<![endif]-->=20
+<LINK href=3D"/FrontPage" rel=3D"Start"> <LINK title=3D"Wiki Markup" =
+href=3D"/HowTos/Xen/InstallingCentOSDomU?action=3Draw"=20
+rel=3D"Alternate"> <LINK title=3D"Print View" =
+href=3D"/HowTos/Xen/InstallingCentOSDomU?action=3Dprint"=20
+rel=3D"Alternate" media=3D"print"> <LINK href=3D"/FindPage" =
+rel=3D"Search"> <LINK href=3D"/TitleIndex"=20
+rel=3D"Index"> <LINK href=3D"/WordIndex" rel=3D"Glossary"> <LINK =
+href=3D"/HelpOnFormatting"=20
+rel=3D"Help">=20
+<META name=3D"GENERATOR" content=3D"MSHTML 11.00.9600.17842"></HEAD>=20
+<BODY lang=3D"en" dir=3D"ltr">
+<DIV id=3D"header">
+<DIV id=3D"logo"><A href=3D"http://wiki.centos.org/FrontPage"><IMG =
+alt=3D"CentOS" =
+src=3D"http://wiki.centos.org/wiki/common/modern-CentOS-logo.png"></A></D=
+IV>
+<UL id=3D"username">
+  <LI><A id=3D"login" =
+href=3D"http://wiki.centos.org/HowTos/Xen/InstallingCentOSDomU?action=3Dl=
+ogin">Login</A></LI></UL>
+<UL class=3D"navibar">
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/FrontPage">FrontPage</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/Documentation">Help</A></LI>
+  <LI class=3D"wikilink"><A =
+href=3D"http://wiki.centos.org/TipsAndTricks">Tips and=20
+  Tricks</A></LI>
+  <LI class=3D"wikilink"><A href=3D"http://wiki.centos.org/HowTos">How =
+To</A></LI>
+  <LI class=3D"wikilink"><A =
+href=3D"http://wiki.centos.org/FAQ">FAQs</A></LI>
+  <LI class=3D"wikilink"><A =
+href=3D"http://wiki.centos.org/Events">Events</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/Contribute">Contribute</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/Newsletter/Latest">Newsletter</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/RecentChanges">Changelog</A></LI>
+  <LI class=3D"current"><A =
+href=3D"http://wiki.centos.org/HowTos/Xen/InstallingCentOSDomU">Installin=
+gCentOSDomU</A></LI>=20
+</UL>
+<DIV class=3D"pageline">
+<HR style=3D"display: none;">
+</DIV></DIV>
+<DIV id=3D"locationline">
+<FORM id=3D"searchform" action=3D"" method=3D"get">
+<DIV><INPUT name=3D"action" type=3D"hidden" value=3D"fullsearch"> <INPUT =
+name=3D"context" type=3D"hidden" value=3D"180">=20
+<LABEL=20
+for=3D"searchinput">Search:</LABEL><INPUT name=3D"value" =
+id=3D"searchinput" onkeyup=3D"searchChange(this)" =
+onfocus=3D"searchFocus(this)" onblur=3D"searchBlur(this)" =
+onchange=3D"searchChange(this)" type=3D"text" size=3D"20" =
+alt=3D"Search">=20
+<INPUT name=3D"fullsearch" id=3D"fullsearch" type=3D"submit" =
+alt=3D"Search Full Text" value=3D"Text">=20
+<INPUT name=3D"titlesearch" id=3D"titlesearch" type=3D"submit" =
+alt=3D"Search Titles" value=3D"Titles">=20
+</DIV></FORM>
+<SCRIPT type=3D"text/javascript">=0A=
+<!--// Initialize search form=0A=
+var f =3D document.getElementById('searchform');=0A=
+f.getElementsByTagName('label')[0].style.display =3D 'none';=0A=
+var e =3D document.getElementById('searchinput');=0A=
+searchChange(e);=0A=
+searchBlur(e);=0A=
+//-->=0A=
+</SCRIPT>
+=20
+<UL id=3D"pagelocation">
+  <LI><A href=3D"http://wiki.centos.org/HowTos">HowTos</A></LI>
+  <LI><A class=3D"nonexistent"=20
+  href=3D"http://wiki.centos.org/HowTos/Xen">Xen</A></LI>
+  <LI><A title=3D"Click to do a full-text search for this title" =
+class=3D"backlink"=20
+  =
+href=3D"http://wiki.centos.org/HowTos/Xen/InstallingCentOSDomU?action=3Df=
+ullsearch&amp;value=3Dlinkto%3A%22HowTos/Xen/InstallingCentOSDomU%22&amp;=
+context=3D180">InstallingCentOSDomU</A></LI>=20
+</UL></DIV>
+<DIV id=3D"page" lang=3D"en" dir=3D"ltr">
+<DIV id=3D"content" lang=3D"en" dir=3D"ltr"><SPAN class=3D"anchor" =
+id=3D"top"></SPAN>=20
+<SPAN class=3D"anchor" id=3D"line-1"></SPAN>
+<P class=3D"line867">=20
+<H1 id=3D"head-37854f78db4578f9997bb0bdaac09d12fe4bf58e">Creating and =
+installing a=20
+CentOS 5 domU instance</H1><SPAN class=3D"anchor" =
+id=3D"line-2"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-3"></SPAN><SPAN class=3D"anchor" id=3D"line-4"></SPAN>
+<P class=3D"line867"><IMG width=3D"15" height=3D"15" title=3D"<!>" =
+alt=3D"<!>" =
+src=3D"http://wiki.centos.org/wiki/modern-CentOS/img/attention.png">=20
+<STRONG>Note</STRONG>: This write-up is of a general nature for each =
+successive=20
+point release of CentOS 5, and is not tied to or specific for any =
+particular=20
+'point' respin of CentOS in the 5 series.  Setup and usage of KVM is =
+covered=20
+elsewhere. <SPAN class=3D"anchor" id=3D"line-5"></SPAN><SPAN =
+class=3D"anchor" id=3D"line-6"></SPAN>
+<P class=3D"line867">
+<H2 =
+id=3D"head-048604b8842567d1c3ccd642ebf4813e113a924b">Introduction</H2><SP=
+AN=20
+class=3D"anchor" id=3D"line-7"></SPAN>
+<P class=3D"line862">This howto describes how you can create a CentOS 5 =
+Xen domU=20
+instance, without using <STRONG>virt-manager</STRONG>, or its console =
+variant=20
+<STRONG>virt-install</STRONG>. Usually, instances require more =
+customization=20
+than these tools provide, so it is often better to make instances using =
+the=20
+tools that lie underneath. The last section of this howto describes how =
+you can=20
+perform the same steps with <STRONG>virsh</STRONG>, a generic tool for=20
+management of virtualized domains. <SPAN class=3D"anchor" =
+id=3D"line-8"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-9"></SPAN>
+<P class=3D"line862">This howto assumes that Xen is already installed, =
+and that=20
+CentOS is running as dom0 (the privileged administrative domain). Put =
+simply,=20
+this can be done by installing the <EM>xen</EM> and <EM>kernel-xen</EM>=20
+packages, and booting the Xen flavor of the kernel.  The matter is =
+covered in=20
+careful detail in the <A class=3D"http"=20
+href=3D"http://www.centos.org/docs/5">Virtualization Guide</A> <SPAN =
+class=3D"anchor"=20
+id=3D"line-10"></SPAN><SPAN class=3D"anchor" id=3D"line-11"></SPAN>
+<P class=3D"line874">Besides that this howto currently assumes that a =
+disk image=20
+file will be used to hold the domU disk. Though, using a physical =
+partition or=20
+volume should be trivial. <SPAN class=3D"anchor" =
+id=3D"line-12"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-13"></SPAN>
+<P class=3D"line874">To clear up some terminology that is often =
+confusing to new=20
+Xen users: dom0 is the privileged administrative domain of which only =
+one can=20
+run. domU is an unprivileged domain, of which many can run at the same =
+time.=20
+Although it is an incorrect analogy, it often helps to think of dom0 as =
+the host=20
+system, and domU as a guest system. <SPAN class=3D"anchor"=20
+id=3D"line-14"></SPAN><SPAN class=3D"anchor" id=3D"line-15"></SPAN>
+<P class=3D"line867">
+<H2 id=3D"head-7a17f3416f18ce1e28e7d6c9d79f73b63fd1918d">Creating an=20
+image</H2><SPAN class=3D"anchor" id=3D"line-16"></SPAN>
+<P class=3D"line862">The first step is to create an image that will hold =
+the domU=20
+virtual disk. Since this can just be a raw zero-filled file, our usual =
+friend=20
+<STRONG>dd</STRONG> becomes handy. In this howto we will put images in=20
+<EM>/srv/xen</EM>, although the semi-officially sanctioned location =
+seems to be=20
+<EM>/var/lib/xen/images</EM>. If you would like to allocate disk blocks =
+as the=20
+file grows, you can create a file with a hole. The following command =
+will create=20
+a <EM>/srv/xen/mailserver.img</EM> file of 2048MB, although the actual =
+data=20
+blocks are allocated in a lazy fashion: <SPAN class=3D"anchor"=20
+id=3D"line-17"></SPAN><SPAN class=3D"anchor" id=3D"line-18"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-19"></SPAN>
+<PRE># dd if=3D/dev/zero of=3D/srv/xen/mailserver.img oflag=3Ddirect =
+bs=3D1M seek=3D2047 count=3D1=0A=
+<SPAN class=3D"anchor" id=3D"line-20"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-21"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-22"></SPAN>
+<P class=3D"line874">If you want to reserve all the data blocks right =
+away, you=20
+can also do that: <SPAN class=3D"anchor" id=3D"line-23"></SPAN><SPAN =
+class=3D"anchor"=20
+id=3D"line-24"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-25"></SPAN>
+<PRE># dd if=3D/dev/zero of=3D/srv/xen/mailserver.img oflag=3Ddirect =
+bs=3D1M count=3D2048=0A=
+<SPAN class=3D"anchor" id=3D"line-26"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-27"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-28"></SPAN>
+<P class=3D"line874">This will avoid data block allocation problems if =
+the volume=20
+that holds the image is full. <SPAN class=3D"anchor" =
+id=3D"line-29"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-30"></SPAN>
+<P class=3D"line862">If you are using SELinux, it is important to check =
+that the=20
+image has the correct security context (<EM>xen_image_t</EM>), or access =
+to the=20
+virtual disk will be denied to the domU system. You can check this with=20
+<STRONG>ls</STRONG>: <SPAN class=3D"anchor" id=3D"line-31"></SPAN><SPAN =
+class=3D"anchor"=20
+id=3D"line-32"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-33"></SPAN>
+<PRE># ls -Z /srv/xen/mailserver.img =0A=
+<SPAN class=3D"anchor" id=3D"line-34"></SPAN>-rw-r--r--  root root =
+user_u:object_r:xen_image_t      /srv/xen/mailserver.img=0A=
+<SPAN class=3D"anchor" id=3D"line-35"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-36"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-37"></SPAN>
+<P class=3D"line862">If you are having trouble setting the right file =
+context,=20
+please have a look at the <A class=3D"nonexistent" =
+href=3D"http://wiki.centos.org/TipsAndTricks/Xen">Xen=20
+tips and tricks</A> page. At any rate, turning off SELinux, as some =
+howtos on=20
+this subject advise is a very poor workaround. Reading two manual pages=20
+(<EM>semanage(8)</EM> and <EM>restorecon(8)</EM>), for an extra layer of =
+
+security is a good trade! <SPAN class=3D"anchor" =
+id=3D"line-38"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-39"></SPAN>
+<P class=3D"line867">
+<H2 id=3D"head-ec6a308414d44b75221ae2b267d630fc33a36d0b">Preparing a Xen =
+
+configuration file for the installation</H2><SPAN class=3D"anchor"=20
+id=3D"line-40"></SPAN>
+<P class=3D"line874">Xen uses a configuration file per domain. The =
+configuration=20
+for the domain will be slightly different during the installation, =
+because we=20
+have to provide installation kernels, and possibly some boot parameters. =
+You=20
+will need an domU installation initrd image and kernel. Depending on the =
+machine=20
+architecture, both can be downloaded from: <SPAN class=3D"anchor"=20
+id=3D"line-41"></SPAN><SPAN class=3D"anchor" id=3D"line-42"></SPAN>
+<P class=3D"line867"><A class=3D"http" =
+href=3D"http://mirror.centos.org/centos/5/os/i386/images/xen/">http://mir=
+ror.centos.org/centos/5/os/i386/images/xen/</A>=20
+<SPAN class=3D"anchor" id=3D"line-43"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-44"></SPAN>
+<P class=3D"line874">or <SPAN class=3D"anchor" =
+id=3D"line-45"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-46"></SPAN>
+<P class=3D"line867"><A class=3D"http" =
+href=3D"http://mirror.centos.org/centos/5/os/x86_64/images/xen/">http://m=
+irror.centos.org/centos/5/os/x86_64/images/xen/</A>=20
+<SPAN class=3D"anchor" id=3D"line-47"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-48"></SPAN>
+<P class=3D"line862">You can put them in some sensible directory, and =
+rename them=20
+appropriately. In this example, the kernel and initrd image will be =
+named=20
+<EM>/boot/vmlinuz-xen-install</EM> and <EM>/boot/initrd-xen-install</EM> =
+
+respectively. <SPAN class=3D"anchor" id=3D"line-49"></SPAN><SPAN =
+class=3D"anchor" id=3D"line-50"></SPAN>
+<P class=3D"line862">With the images in place, you can create the =
+installation=20
+configuration file, named <EM>/etc/xen/mailserver</EM> here: <SPAN =
+class=3D"anchor"=20
+id=3D"line-51"></SPAN><SPAN class=3D"anchor" id=3D"line-52"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-53"></SPAN>
+<PRE>kernel =3D "/boot/vmlinuz-xen-install"=0A=
+<SPAN class=3D"anchor" id=3D"line-54"></SPAN>ramdisk =3D =
+"/boot/initrd-xen-install"=0A=
+<SPAN class=3D"anchor" id=3D"line-55"></SPAN>extra =3D "text =
+ks=3Dhttp://localserver/minimal-ks.cfg"=0A=
+<SPAN class=3D"anchor" id=3D"line-56"></SPAN>name =3D "mailserver"=0A=
+<SPAN class=3D"anchor" id=3D"line-57"></SPAN>memory =3D "256"=0A=
+<SPAN class=3D"anchor" id=3D"line-58"></SPAN>disk =3D [ =
+'tap:aio:/srv/xen/mailserver.img,xvda,w', ]=0A=
+<SPAN class=3D"anchor" id=3D"line-59"></SPAN>vif =3D [ =
+'bridge=3Dxenbr0', ]=0A=
+<SPAN class=3D"anchor" id=3D"line-60"></SPAN>vcpus=3D1=0A=
+<SPAN class=3D"anchor" id=3D"line-61"></SPAN>on_reboot =3D 'destroy'=0A=
+<SPAN class=3D"anchor" id=3D"line-62"></SPAN>on_crash =3D 'destroy'=0A=
+<SPAN class=3D"anchor" id=3D"line-63"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-64"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-65"></SPAN>
+<P class=3D"line862">You may want to tune some of the parameters, like =
+the amount=20
+of memory that is dedicated to the domU, or the name of the bridge, if =
+you will=20
+be using a different bridge for this domU. Besides that, this =
+configuration file=20
+uses a kickstart file to perform the installation automatically. Remove =
+the=20
+<EM>ks=3D<A class=3D"http"=20
+href=3D"http://localserver/minimal-ks.cfg">http://localserver/minimal-ks.=
+cfg</A></EM>=20
+stanza if you would like to do an interactive installation. This example =
+also=20
+explicitly uses a text installation - it is possible to do a graphical=20
+installation with a VNC viewer. But in my experience a text installation =
+is much=20
+more comfortable, because you can attach a (text) console to the domain =
+at any=20
+time, allowing you to use or watch Anaconda directly. <SPAN =
+class=3D"anchor" id=3D"line-66"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-67"></SPAN>
+<P class=3D"line867">
+<H2 id=3D"head-d1235142ad11883934d8840e1ca45b0c5d9b6ae8">Example =
+kickstart=20
+file</H2><SPAN class=3D"anchor" id=3D"line-68"></SPAN>
+<P class=3D"line874">For reference, this is an example kickstart file. =
+If you want=20
+to use it, you *should* modify it for your specific situation (and at =
+the very=20
+least modify the root password). This kickstart file makes a very =
+minimal=20
+installation, which is handy if you would like to make copies of an =
+image to=20
+deploy new instances rapidly. <SPAN class=3D"anchor" =
+id=3D"line-69"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-70"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-71"></SPAN>
+<PRE>install=0A=
+<SPAN class=3D"anchor" id=3D"line-72"></SPAN>url --url =
+http://mirror.centos.org/centos/5/os/i386=0A=
+<SPAN class=3D"anchor" id=3D"line-73"></SPAN>lang en_US.UTF-8=0A=
+<SPAN class=3D"anchor" id=3D"line-74"></SPAN>network --device eth0 =
+--bootproto dhcp=0A=
+<SPAN class=3D"anchor" id=3D"line-75"></SPAN># Bogus password, change to =
+something sensible!=0A=
+<SPAN class=3D"anchor" id=3D"line-76"></SPAN>rootpw bogus=0A=
+<SPAN class=3D"anchor" id=3D"line-77"></SPAN>firewall --enabled --port=3D=0A=
+<SPAN class=3D"anchor" id=3D"line-78"></SPAN>authconfig --enableshadow =
+--enablemd5=0A=
+<SPAN class=3D"anchor" id=3D"line-79"></SPAN>selinux --enforcing =
+=E2=88=92=E2=88=92port=3D22:tcp=0A=
+<SPAN class=3D"anchor" id=3D"line-80"></SPAN>timezone --utc =
+Europe/Amsterdam=0A=
+<SPAN class=3D"anchor" id=3D"line-81"></SPAN>bootloader --location=3Dmbr =
+--driveorder=3Dxvda --append=3D"console=3Dxvc0"=0A=
+<SPAN class=3D"anchor" id=3D"line-82"></SPAN>reboot=0A=
+<SPAN class=3D"anchor" id=3D"line-83"></SPAN>=0A=
+<SPAN class=3D"anchor" id=3D"line-84"></SPAN># Partitioning=0A=
+<SPAN class=3D"anchor" id=3D"line-85"></SPAN>clearpart --all --initlabel =
+--drives=3Dxvda=0A=
+<SPAN class=3D"anchor" id=3D"line-86"></SPAN>part /boot --fstype ext3 =
+--size=3D100 --ondisk=3Dxvda=0A=
+<SPAN class=3D"anchor" id=3D"line-87"></SPAN>part pv.2 --size=3D0 --grow =
+--ondisk=3Dxvda=0A=
+<SPAN class=3D"anchor" id=3D"line-88"></SPAN>volgroup VolGroup00 =
+--pesize=3D32768 pv.2=0A=
+<SPAN class=3D"anchor" id=3D"line-89"></SPAN>logvol / --fstype ext3 =
+--name=3DLogVol00 --vgname=3DVolGroup00 --size=3D1024 --grow=0A=
+<SPAN class=3D"anchor" id=3D"line-90"></SPAN>logvol swap --fstype swap =
+--name=3DLogVol01 --vgname=3DVolGroup00 --size=3D256 --grow =
+--maxsize=3D512=0A=
+<SPAN class=3D"anchor" id=3D"line-91"></SPAN>=0A=
+<SPAN class=3D"anchor" id=3D"line-92"></SPAN>%packages=0A=
+<SPAN class=3D"anchor" id=3D"line-93"></SPAN>@core=0A=
+<SPAN class=3D"anchor" id=3D"line-94"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-95"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-96"></SPAN>
+<P class=3D"line867">=20
+<H2 id=3D"head-544e5a79b85d12ed5c82d50dd9b70159ce235514">Starting the=20
+installation</H2><SPAN class=3D"anchor" id=3D"line-97"></SPAN>
+<P class=3D"line874">With the installation configuration set up, you can =
+launch=20
+the domU instance: <SPAN class=3D"anchor" id=3D"line-98"></SPAN><SPAN =
+class=3D"anchor"=20
+id=3D"line-99"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-100"></SPAN>
+<PRE># xm create mailserver=0A=
+<SPAN class=3D"anchor" id=3D"line-101"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-102"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-103"></SPAN>
+<P class=3D"line874">If you configured this domU correctly, the =
+installation will=20
+happily start. If you chose to do a manual installation, or would like =
+to see=20
+kickstart in action, you can attach a console to the domU: <SPAN =
+class=3D"anchor"=20
+id=3D"line-104"></SPAN><SPAN class=3D"anchor" id=3D"line-105"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-106"></SPAN>
+<PRE># xm console mailserver=0A=
+<SPAN class=3D"anchor" id=3D"line-107"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-108"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-109"></SPAN>
+<P class=3D"line874">After the installation, the domU will be rebooted =
+and=20
+destroyed (since that is the default action for reboots, we will change =
+that=20
+later). <SPAN class=3D"anchor" id=3D"line-110"></SPAN><SPAN =
+class=3D"anchor" id=3D"line-111"></SPAN>
+<P class=3D"line867">
+<H2 id=3D"head-115c83fc9c2ad75715cf83c0a1e4840b4b603e1b">Post-install=20
+configuration</H2><SPAN class=3D"anchor" id=3D"line-112"></SPAN>
+<P class=3D"line874">Now that the installation is finished, this can be =
+a good=20
+time to make a copy of the instance image to use as a template. At this =
+point=20
+the SSH keys are not generated yet, making it easier to give each =
+instance a=20
+unique set of SSH keys. <SPAN class=3D"anchor" =
+id=3D"line-113"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-114"></SPAN>
+<P class=3D"line874">The installation configuration should now be =
+modified for=20
+non-install use. This is the modified configuration: <SPAN =
+class=3D"anchor" id=3D"line-115"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-116"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-117"></SPAN>
+<PRE>name =3D "mailserver"=0A=
+<SPAN class=3D"anchor" id=3D"line-118"></SPAN>memory =3D "256"=0A=
+<SPAN class=3D"anchor" id=3D"line-119"></SPAN>disk =3D [ =
+'tap:aio:/srv/xen/mailserver.img,xvda,w', ]=0A=
+<SPAN class=3D"anchor" id=3D"line-120"></SPAN>vif =3D [ =
+'bridge=3Dxenbr0', ]=0A=
+<SPAN class=3D"anchor" =
+id=3D"line-121"></SPAN>bootloader=3D"/usr/bin/pygrub"=0A=
+<SPAN class=3D"anchor" id=3D"line-122"></SPAN>vcpus=3D1=0A=
+<SPAN class=3D"anchor" id=3D"line-123"></SPAN>on_reboot =3D 'restart'=0A=
+<SPAN class=3D"anchor" id=3D"line-124"></SPAN>on_crash =3D 'restart'=0A=
+<SPAN class=3D"anchor" id=3D"line-125"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-126"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-127"></SPAN>
+<P class=3D"line862">As you can see, this new configuration is not using =
+the=20
+kernel and initrd images anymore. Instead, it is using =
+<STRONG>pygrub</STRONG>=20
+as a bootloader. <STRONG>pygrub</STRONG> will try to look for a =
+partition=20
+holding a filesystem that contains the GRUB configuration in the virtual =
+disk=20
+image. If a GRUB configuration was found, this will be used to boot a =
+kernel.=20
+This is very handy, because this will allow you to use/manage kernels in =
+the=20
+domU. If <STRONG>yum update</STRONG> pulls in a security updated kernel =
+in the=20
+domU, it will automatically be used during the next boot of the domain. =
+<SPAN=20
+class=3D"anchor" id=3D"line-128"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-129"></SPAN>
+<P class=3D"line874">Another change is that we have changed how to =
+handle crashes=20
+and reboots. You'll usually want to reboot a domain if a crash or reboot =
+occurs.=20
+<SPAN class=3D"anchor" id=3D"line-130"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-131"></SPAN>
+<P class=3D"line874">With this configuration in place, you can test this =
+domain:=20
+<SPAN class=3D"anchor" id=3D"line-132"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-133"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-134"></SPAN>
+<PRE># xm create mailserver=0A=
+<SPAN class=3D"anchor" id=3D"line-135"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-136"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-137"></SPAN>
+<P class=3D"line874">If you have installed SSH, you can log in to that =
+domain=20
+through SSH, or you can use the Xen console: <SPAN class=3D"anchor"=20
+id=3D"line-138"></SPAN><SPAN class=3D"anchor" id=3D"line-139"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-140"></SPAN>
+<PRE># xm console mailserver=0A=
+<SPAN class=3D"anchor" id=3D"line-141"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-142"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-143"></SPAN>
+<P class=3D"line874">You can now administrate the domain as a usual =
+CentOS=20
+machine. You can shut down the domain with: <SPAN class=3D"anchor"=20
+id=3D"line-144"></SPAN><SPAN class=3D"anchor" id=3D"line-145"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-146"></SPAN>
+<PRE># xm shutdown mailserver=0A=
+<SPAN class=3D"anchor" id=3D"line-147"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-148"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-149"></SPAN>
+<P class=3D"line862">For more information on the options that =
+<STRONG>xm</STRONG>=20
+provides, please refer to the <STRONG>xm</STRONG> manual page. <SPAN =
+class=3D"anchor"=20
+id=3D"line-150"></SPAN><SPAN class=3D"anchor" id=3D"line-151"></SPAN>
+<P class=3D"line867">
+<H2 id=3D"head-a42156043aeade4574f92c883904dbe4e69451d9">Automatically =
+starting=20
+domains</H2><SPAN class=3D"anchor" id=3D"line-152"></SPAN>
+<P class=3D"line862">If you would like a domain to start automatically =
+when the=20
+(dom0) system is started, move the domain configuration to the=20
+<EM>/etc/xen/auto</EM> directory. For instance: <SPAN class=3D"anchor" =
+id=3D"line-153"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-154"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-155"></SPAN>
+<PRE># mv /etc/xen/mailserver /etc/xen/auto=0A=
+<SPAN class=3D"anchor" id=3D"line-156"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-157"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-158"></SPAN>
+<P class=3D"line874">This will also shut down the domain properly when =
+the system=20
+is shut down. <SPAN class=3D"anchor" id=3D"line-159"></SPAN><SPAN =
+class=3D"anchor" id=3D"line-160"></SPAN>
+<P class=3D"line867">
+<H2 id=3D"head-1095059dae641b2e85bf6ea2e41d2eba9053a7ac">Using=20
+virsh/libvirt</H2><SPAN class=3D"anchor" id=3D"line-161"></SPAN>
+<P class=3D"line874">The libvirt library is being developed to provide =
+an=20
+abstraction API for the various virtual machine technology that is out =
+there. An=20
+older version of libvirt that supports Xen is included in CentOS 5. =
+Newer=20
+versions also provide abstraction for KVM and qemu. <SPAN =
+class=3D"anchor" id=3D"line-162"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-163"></SPAN>
+<P class=3D"line862">libvirt can be used from the shell with the=20
+<STRONG>virsh</STRONG> command. This command can be used to manage =
+domains in a=20
+comparable fashion to <STRONG>xm</STRONG>. The domain creation and =
+shutdown=20
+commands are the most important commands in the context of this article: =
+<SPAN=20
+class=3D"anchor" id=3D"line-164"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-165"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-166"></SPAN>
+<PRE>virsh create FILE=0A=
+<SPAN class=3D"anchor" id=3D"line-167"></SPAN>virsh shutdown =
+domain-name/id/uuid=0A=
+<SPAN class=3D"anchor" id=3D"line-168"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-169"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-170"></SPAN>
+<P class=3D"line862">libvirt uses XML descriptions for domains. The =
+format of=20
+these domain descriptions is <A class=3D"http" =
+href=3D"http://libvirt.org/format.html">covered=20
+on the libvirt website</A>. To get you started, here are the domain =
+descriptions=20
+for respectively the installation configuration: <SPAN class=3D"anchor" =
+id=3D"line-171"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-172"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-173"></SPAN>
+<PRE>&lt;domain type=3D'xen'&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-174"></SPAN>  =
+&lt;name&gt;mailserver&lt;/name&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-175"></SPAN>  &lt;os&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-176"></SPAN>    =
+&lt;type&gt;linux&lt;/type&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-177"></SPAN>    =
+&lt;kernel&gt;/boot/vmlinuz-xen-install&lt;/kernel&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-178"></SPAN>    =
+&lt;initrd&gt;/boot/initrd-xen-install&lt;/initrd&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-179"></SPAN>    &lt;cmdline&gt;text =
+ks=3Dhttp://localserver/minimal-ks.cfg&lt;/cmdline&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-180"></SPAN>  &lt;/os&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-181"></SPAN>  =
+&lt;memory&gt;262144&lt;/memory&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-182"></SPAN>  =
+&lt;vcpu&gt;1&lt;/vcpu&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-183"></SPAN>  =
+&lt;on_poweroff&gt;destroy&lt;/on_poweroff&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-184"></SPAN>  =
+&lt;on_reboot&gt;destroy&lt;/on_reboot&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-185"></SPAN>  =
+&lt;on_crash&gt;destroy&lt;/on_crash&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-186"></SPAN>  &lt;devices&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-187"></SPAN>    &lt;interface =
+type=3D'bridge'&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-188"></SPAN>      &lt;source =
+bridge=3D'xenbr0'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-189"></SPAN>      &lt;script =
+path=3D'vif-bridge'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-190"></SPAN>    &lt;/interface&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-191"></SPAN>    &lt;disk type=3D'file' =
+device=3D'disk'&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-192"></SPAN>      &lt;driver =
+name=3D'tap' type=3D'aio'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-193"></SPAN>      &lt;source =
+file=3D'/srv/xen/mailserver.img'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-194"></SPAN>      &lt;target =
+dev=3D'xvda'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-195"></SPAN>    &lt;/disk&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-196"></SPAN>    &lt;console =
+tty=3D'/dev/pts/1'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-197"></SPAN>  &lt;/devices&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-198"></SPAN>&lt;/domain&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-199"></SPAN></PRE><SPAN =
+class=3D"anchor" id=3D"line-200"></SPAN><SPAN class=3D"anchor"=20
+id=3D"line-201"></SPAN>
+<P class=3D"line874">and the run-time configuration: <SPAN =
+class=3D"anchor" id=3D"line-202"></SPAN><SPAN=20
+class=3D"anchor" id=3D"line-203"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-204"></SPAN>
+<PRE>&lt;domain type=3D'xen'&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-205"></SPAN>  =
+&lt;name&gt;mailserver&lt;/name&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-206"></SPAN>  =
+&lt;bootloader&gt;/usr/bin/pygrub&lt;/bootloader&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-207"></SPAN>  &lt;os&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-208"></SPAN>    =
+&lt;type&gt;linux&lt;/type&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-209"></SPAN>  &lt;/os&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-210"></SPAN>  =
+&lt;memory&gt;262144&lt;/memory&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-211"></SPAN>  =
+&lt;vcpu&gt;1&lt;/vcpu&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-212"></SPAN>  =
+&lt;on_poweroff&gt;destroy&lt;/on_poweroff&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-213"></SPAN>  =
+&lt;on_reboot&gt;restart&lt;/on_reboot&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-214"></SPAN>  =
+&lt;on_crash&gt;restart&lt;/on_crash&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-215"></SPAN>  &lt;devices&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-216"></SPAN>    &lt;interface =
+type=3D'bridge'&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-217"></SPAN>      &lt;source =
+bridge=3D'xenbr0'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-218"></SPAN>      &lt;script =
+path=3D'vif-bridge'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-219"></SPAN>    &lt;/interface&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-220"></SPAN>    &lt;disk type=3D'file' =
+device=3D'disk'&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-221"></SPAN>      &lt;driver =
+name=3D'tap' type=3D'aio'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-222"></SPAN>      &lt;source =
+file=3D'/srv/xen/mailserver.img'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-223"></SPAN>      &lt;target =
+dev=3D'xvda'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-224"></SPAN>    &lt;/disk&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-225"></SPAN>    &lt;console =
+tty=3D'/dev/pts/1'/&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-226"></SPAN>  &lt;/devices&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-227"></SPAN>&lt;/domain&gt;=0A=
+<SPAN class=3D"anchor" id=3D"line-228"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-229"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-230"></SPAN>
+<P class=3D"line874">Suppose that these configuration files are named=20
+/srv/xen/mailserver.xml, you can create and shutdown the domain with: =
+<SPAN=20
+class=3D"anchor" id=3D"line-231"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-232"></SPAN>
+<P class=3D"line867"><SPAN class=3D"anchor" id=3D"line-233"></SPAN>
+<PRE># virsh create /srv/xen/mailserver.xml=0A=
+<SPAN class=3D"anchor" id=3D"line-234"></SPAN># virsh shutdown mailserver=0A=
+<SPAN class=3D"anchor" id=3D"line-235"></SPAN></PRE><SPAN=20
+class=3D"anchor" id=3D"line-236"></SPAN><SPAN class=3D"anchor" =
+id=3D"line-237"></SPAN>
+<P class=3D"line867">=20
+<H2 id=3D"head-143d0563b74d11b54b6f61e8796840185ddb26de">See =
+also</H2><SPAN class=3D"anchor"=20
+id=3D"line-238"></SPAN>
+<P class=3D"line862">Other pages referring to the topic of xen =
+virtualizationin=20
+this <A class=3D"http" href=3D"http://wiki.centos.org/HowTos">wiki</A> =
+include:=20
+<SPAN class=3D"anchor" id=3D"line-239"></SPAN>
+<UL>
+  <LI>
+  <P class=3D"line891"><A class=3D"http" =
+href=3D"http://wiki.centos.org/TipsAndTricks/Xen">Xen=20
+  Environment</A>, including setting the SELinux security context <SPAN =
+class=3D"anchor"=20
+  id=3D"line-240"></SPAN></P></LI>
+  <LI>
+  <P class=3D"line891"><A class=3D"http" =
+href=3D"http://wiki.centos.org/TipsAndTricks/SelinuxBooleans">SELinux=20
+  security booleans</A> generally <SPAN class=3D"anchor"=20
+  id=3D"line-241"></SPAN></P></LI>
+  <LI>
+  <P class=3D"line891"><A class=3D"http" =
+href=3D"http://wiki.centos.org/HowTos/Xen/MoveNative2DomU">How=20
+  to move a native CentOS installation into a paravirtualized Xen =
+guest</A>=20
+  <SPAN class=3D"anchor" id=3D"line-242"></SPAN></P></LI>
+  <LI>
+  <P class=3D"line862">The broader topic of <A class=3D"http" =
+href=3D"http://wiki.centos.org/HowTos/Virtualization/Introduction">Virtua=
+lization=20
+  on CentOS</A> generally <SPAN class=3D"anchor"=20
+id=3D"line-243"></SPAN></P></LI></UL><SPAN class=3D"anchor"=20
+id=3D"bottom"></SPAN></DIV>
+<P class=3D"info" id=3D"pageinfo" lang=3D"en"=20
+dir=3D"ltr">HowTos/Xen/InstallingCentOSDomU  (last edited 2009-11-05 =
+12:56:45 by=20
+<SPAN=20
+title=3D"orc_orc @ =
+adsl-76-242-0-27.dsl.wotnoh.sbcglobal.net[76.242.0.27]"><A=20
+title=3D"orc_orc @ =
+adsl-76-242-0-27.dsl.wotnoh.sbcglobal.net[76.242.0.27]" class=3D"mailto" =
+
+href=3D"mailto:herrold@owlriver.com">RussHerrold</A></SPAN>)</P>
+<DIV id=3D"pagebottom"></DIV></DIV>
+<DIV id=3D"footer">
+<DIV class=3D"pageline">
+<HR style=3D"display: none;">
+</DIV>
+<UL class=3D"navibar">
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/FrontPage">FrontPage</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/Documentation">Help</A></LI>
+  <LI class=3D"wikilink"><A =
+href=3D"http://wiki.centos.org/TipsAndTricks">Tips and=20
+  Tricks</A></LI>
+  <LI class=3D"wikilink"><A href=3D"http://wiki.centos.org/HowTos">How =
+To</A></LI>
+  <LI class=3D"wikilink"><A =
+href=3D"http://wiki.centos.org/FAQ">FAQs</A></LI>
+  <LI class=3D"wikilink"><A =
+href=3D"http://wiki.centos.org/Events">Events</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/Contribute">Contribute</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/Newsletter/Latest">Newsletter</A></LI>
+  <LI class=3D"wikilink"><A=20
+  href=3D"http://wiki.centos.org/RecentChanges">Changelog</A></LI>
+  <LI class=3D"current"><A =
+href=3D"http://wiki.centos.org/HowTos/Xen/InstallingCentOSDomU">Installin=
+gCentOSDomU</A></LI>=20
+</UL>
+<DIV id=3D"credits"><STRONG><A =
+href=3D"http://creativecommons.org/licenses/by-sa/3.0/"=20
+rel=3D"license"><IMG style=3D"border-width: 0px;" alt=3D"Creative =
+Commons License"=20
+src=3D"http://wiki.centos.org/wiki/common/cc-somerights20.png"> =
+</A></STRONG>=20
+<BR>This wiki is licensed under a <EM><A =
+href=3D"http://creativecommons.org/licenses/by-sa/3.0/"=20
+rel=3D"license">Creative Commons Attribution-Share Alike 3.0 Unported=20
+License</A></EM>. </DIV></DIV></BODY></HTML>
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://wiki.centos.org/wiki/common/modern-CentOS-logo.png
+
+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
+4f8BE73U7mCpgEUAAAAASUVORK5CYII=
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://wiki.centos.org/wiki/modern-CentOS/img/attention.png
+
+iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPAgMAAABGuH3ZAAAACVBMVEUAAADAwMD/zmMyiQ9mAAAA
+AnRSTlP/AOW3MEoAAAABYktHRACIBR1IAAAAO0lEQVR42mMIDRENYQgNagUSXguBhIZGCEPICi0R
+hqAVWi0MXiu0FkCIoFWrWiASYCUQxWBtYANCQ0MAH34VUEA7mI4AAAAASUVORK5CYII=
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://wiki.centos.org/wiki/common/cc-somerights20.png
+
+iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABFUExURSAgILC2r9XX1VZXVpaXlu/v77zA
+vLi9uLK3scDEv8nNyK2yrLW6tMXJxK60rXx8fEBAQM3QzKyyq6uxqv///wAAAAAAACmwp6sAAAAX
+dFJOU/////////////////////////////8A5kDmXgAAAtxJREFUeNq0luuWqyAMhVNAbb0ltmTe
+/1HPDqBiW6c9P4Y1i0qEb203CQz96J+0H1J97O1ubRjmeb5cr+PYdW17u92maer7fikNj/00Idy2
+XTeO1+vlMs/DMKS1K0iVTriXxO0yt8IWdCZ3hTwbOXF3cg2+vxVsXNBGb19IfsxoI2+SN/D9PfiR
+uUMSfC2CzQeggCVhAZttCPBUJGcv5mcvXhTvgsdKsFcK0Rrc80smP0m+fw2uuKzSxNwcKe9mvHjx
+Dvxk8eoEwJPqFNfmMKhc/gK8erxZXBSbYI5N4DY6Zhe9squ9WBPuC8WrxUWwE10i2b6RErlJvSuS
+K5M/bd6wgZPibLFovEF0YH30bYwqlcnjwYstkQ+KE3k+KL4ZuC9gxwo3DHyu+P7ZioNi1yAZVFRE
+G5cUL0+KP+fx/OJxzxpi54Ujiwwx5M17UjyfKz73eFRqtnSD9jF7XNJtrLPi3Ip5TbdxTzfn1W9g
+PC+uFPUh3YZfFb+vvImwYbk8RKl3VU1vTszfl/Rm8uJ6pLEPLeMsksnVp9A3lXc/7t7h1HRM6WYg
+27hfzs3HaR7vx2Yt2doj+PBwSw3uziz+j4PemnPbHfIi+Gixgf+oAYwTnGnBQRujCAoWe89q/aBR
+kGYtoTAiIxDSG7EJ1omNLZ4iDjG/DgwsMXgsU1vqvYHtAkpMdKgzdFiDeWozDQwt6FTLyhy5Nr7J
+UVsJMO4c3GYJ3DLO3A0sCYyzmFawzUwYzuCyMke44RUsCaxmQQYH+1ozQTYr8K0Ax5jA+EpKVjTJ
+irKyfL3ER5OiK5iEgstgdukhK8ZlkcBxt4IkNAaGQUlbWZkjGp0/KJa8NQYWg7xYUXlsv5UVZWWO
+aJOJu2IY4HwTGx+lXWSzIoNDrBSHdJUWMGyxcbbCwLfkVaQ1K3CVoVw9jgEm7wmbxfaPCWJMTMSI
+eUEYf2mmpmcy720s9pDeivVc3vxdgfwTYABlOKHZNVc3hgAAAABJRU5ErkJggg==
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://wiki.centos.org/wiki/modern-CentOS/css/common.css
+
+html {
+	color: black; font-family: Arial, Lucida Grande, sans-serif; font-size: =
+14px;
+}
+body {
+	margin: 0px; padding: 0px;
+}
+a.www::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-www.png);
+}
+a.http::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-www.png);
+}
+a.https::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-www.png);
+}
+a.file::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-ftp.png);
+}
+a.ftp::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-ftp.png);
+}
+a.nntp::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-news.png);
+}
+a.news::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-news.png);
+}
+a.telnet::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-telnet.png);
+}
+a.irc::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-telnet.png);
+}
+a.mailto::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-email.png);
+}
+a.attachment::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-attach.png);
+}
+a.badinterwiki::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-inter.png);
+}
+a.interwiki::before {
+	margin: 0px 0.2em; white-space: nowrap; content: =
+url(../img/moin-inter.png);
+}
+li p {
+	margin: 0.25em 0px;
+}
+li.gap {
+	margin-top: 0.5em;
+}
+dt {
+	font-weight: bold; margin-top: 0.5em;
+}
+dd {
+	margin-top: 0px; margin-bottom: 0px;
+}
+dd p {
+	margin: 0.25em 0px;
+}
+a {
+	border: 0px currentColor; border-image: none;
+}
+img {
+	border: 0px currentColor; border-image: none;
+}
+img.drawing {
+	border: 0px currentColor; border-image: none;
+}
+pre {
+	margin: 0.5em 0px; padding: 0.5em 1em; border: 1pt dashed rgb(121, 121, =
+121); border-image: none; font-family: "DejaVu Sans Mono", "Liberation =
+Mono", monospace; white-space: pre-wrap; -ms-word-wrap: break-word; =
+background-color: rgb(243, 243, 243);
+}
+div {
+	margin: 0px; padding: 0px;
+}
+pre.comment {
+	margin: 0px; padding: 0px; border: 0px currentColor; border-image: =
+none; color: red; background-color: rgb(204, 204, 204);
+}
+pre.comment::before {
+	content: url(../img/attention.png);
+}
+table {
+	margin: 0.5em 0px; border-collapse: collapse;
+}
+td {
+	padding: 0.25em 0.5em; border: 1pt solid rgb(173, 185, 204); =
+border-image: none;
+}
+td p {
+	margin: 0px; padding: 0px;
+}
+.table-of-contents {
+	background: url("../img/moin-toc-bg-blue.png") repeat-y right rgb(255, =
+255, 255); margin: 0px; border: 1px solid rgb(204, 204, 204); =
+border-image: none; width: 70%; text-align: left; color: black; =
+padding-bottom: 15px; font-size: small;
+}
+.table-of-contents ol {
+	margin: 0px 0px 0px 1em; list-style-type: decimal;
+}
+.table-of-contents ul {
+	list-style: url("../img/moin-ul.png"); margin: 0px;
+}
+.table-of-contents-heading {
+	margin: 10px; padding: 0px; font-weight: bold;
+}
+.footnotes div {
+	width: 5em; border-top-color: gray; border-top-width: 1pt; =
+border-top-style: solid;
+}
+.footnotes ul {
+	list-style: none; margin: 0px 0px 1em; padding: 0px 2em;
+}
+.footnotes li {
+=09
+}
+.info {
+	color: gray; font-size: 0.7em; float: right;
+}
+#pageinfo {
+	margin: 20px 0px 0px;
+}
+.seperator {
+	color: gray;
+}
+#pagebottom {
+	clear: both;
+}
+hr {
+	border: 0px currentColor; border-image: none; height: 1px; =
+background-color: rgb(156, 156, 156);
+}
+.hr1 {
+	height: 2px;
+}
+.hr2 {
+	height: 3px;
+}
+.hr3 {
+	height: 4px;
+}
+.hr4 {
+	height: 5px;
+}
+.hr5 {
+	height: 6px;
+}
+.hr6 {
+	height: 7px;
+}
+.u {
+	text-decoration: underline;
+}
+.strike {
+	text-decoration: line-through;
+}
+.warning {
+	color: red;
+}
+.error {
+	color: red;
+}
+strong.highlight {
+	padding: 1pt; background-color: rgb(204, 224, 255);
+}
+.rcrss {
+	margin: 0px; float: right;
+}
+[dir=3D'rtl'].recentchanges .rcrss {
+	float: left;
+}
+.recentchanges table {
+	border: 1px solid rgb(237, 237, 237); clear: both;
+}
+.recentchanges td {
+	background: rgb(242, 244, 247); border: 1pt solid rgb(230, 234, 240); =
+vertical-align: top;
+}
+.rcdaybreak td {
+	background: rgb(184, 197, 217); border: currentColor; border-image: =
+none;
+}
+.rcdaybreak td a {
+	font-size: 0.88em;
+}
+.rcicon1 {
+	text-align: center;
+}
+.rcicon2 {
+	text-align: center;
+}
+.rcpagelink {
+	width: 33%;
+}
+.rctime {
+	font-size: 0.88em; white-space: nowrap;
+}
+.rceditor {
+	font-size: 0.88em; white-space: nowrap;
+}
+.rccomment {
+	width: 50%; color: gray; font-size: 0.88em;
+}
+.userpref table {
+	border: currentColor; border-image: none;
+}
+.userpref td {
+	border: currentColor; border-image: none;
+}
+div.codearea {
+	margin: 0.5em 0px; padding: 0px; border: 1pt solid rgb(121, 121, 121); =
+border-image: none; color: black; background-color: rgb(243, 243, 243);
+}
+div.codearea pre {
+	margin: 0px; padding: 10pt; border: currentColor; border-image: none;
+}
+a.codenumbers {
+	margin: 0px 10pt; color: gray; font-size: 0.85em;
+}
+div.codearea pre span.LineNumber {
+	color: gray;
+}
+div.codearea pre span.ID {
+	color: rgb(0, 0, 0);
+}
+div.codearea pre span.Operator {
+	color: rgb(0, 0, 192);
+}
+div.codearea pre span.Char {
+	color: rgb(0, 64, 128);
+}
+div.codearea pre span.Comment {
+	color: rgb(0, 128, 0);
+}
+div.codearea pre span.Number {
+	color: rgb(0, 128, 192);
+}
+div.codearea pre span.String {
+	color: rgb(0, 64, 128);
+}
+div.codearea pre span.SPChar {
+	color: rgb(0, 0, 192);
+}
+div.codearea pre span.ResWord {
+	color: rgb(160, 0, 0);
+}
+div.codearea pre span.ConsWord {
+	color: rgb(0, 128, 128); font-weight: bold;
+}
+div.codearea pre span.Error {
+	border: 1.5pt solid rgb(255, 0, 0); border-image: none; color: rgb(255, =
+128, 128);
+}
+div.codearea pre span.ResWord2 {
+	color: rgb(0, 128, 255); font-weight: bold;
+}
+div.codearea pre span.Special {
+	color: rgb(0, 0, 255);
+}
+div.codearea pre span.Preprc {
+	color: rgb(128, 57, 153);
+}
+.searchresults dt {
+	font-weight: normal; margin-top: 1em;
+}
+.searchresults dd {
+	font-size: 0.85em;
+}
+a.cal-emptyday {
+	text-align: center; color: rgb(119, 119, 119);
+}
+a.cal-usedday {
+	text-align: center; color: rgb(0, 0, 0); font-weight: bold;
+}
+td.cal-workday {
+	text-align: center; background-color: rgb(221, 221, 255);
+}
+td.cal-weekend {
+	text-align: center; background-color: rgb(255, 221, 221);
+}
+td.cal-today {
+	border-width: 2pt; border-style: solid; text-align: center; =
+background-color: rgb(204, 255, 204);
+}
+td.cal-invalidday {
+	background-color: rgb(204, 204, 204);
+}
+a.cal-link {
+	color: rgb(0, 0, 0); text-decoration: none;
+}
+th.cal-header {
+	text-align: center; background-color: rgb(221, 187, 255);
+}
+table.tip {
+	border-width: 1px; border-style: solid; color: black; font-size: small; =
+font-weight: normal; background-color: rgb(255, 136, 136);
+}
+th.tip {
+	text-align: center; font-weight: bold; background-color: rgb(255, 68, =
+68);
+}
+td.tip {
+	text-align: left;
+}
+*[dir=3D'rtl'] td.tip {
+	text-align: right;
+}
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://wiki.centos.org/wiki/modern-CentOS/css/screen.css
+
+html {
+	margin: 0px 4%; line-height: 1.25em; font-family: "DejaVu Sans", =
+"Liberation Sans", sans-serif; font-size: 0.85em; background-image: =
+url("../img/moin-html-background.png"); background-color: rgb(255, 255, =
+255);
+}
+body {
+	background: rgb(255, 255, 255); padding: 0px; border: 10px solid =
+rgb(255, 255, 255);
+}
+a:link {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+a:hover {
+	color: green; text-decoration: underline;
+}
+a:active {
+	color: green; text-decoration: underline;
+}
+a:visited {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+a:hover:visited {
+	color: green; text-decoration: underline;
+}
+a.nonexistent {
+	color: gray;
+}
+a.badinterwiki {
+	color: gray;
+}
+#username a:link {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#username a:hover {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#username a:active {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#username a:visited {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#username a:hover:visited {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#pagetrail a:link {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#pagetrail a:hover {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#pagetrail a:active {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#pagetrail a:visited {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#pagetrail a:hover:visited {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+input {
+=09
+}
+textarea {
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+font-size: 1.4em;
+}
+.disabled {
+	color: gray;
+}
+#header {
+	margin: 0px; padding: 0px; border: currentColor; border-image: none; =
+line-height: 1em; background-image: =
+url("../img/moin-header-background.png"); background-color: rgb(32, 76, =
+141);
+}
+#logo {
+	margin: 10px; padding: 0px; line-height: 1em; font-size: 1.4em; =
+font-weight: bold; float: left;
+}
+*[dir=3D'rtl'] #logo {
+	float: right;
+}
+#logo img {
+	vertical-align: middle;
+}
+#logo a {
+	color: white; text-decoration: none;
+}
+#header .googlecontent {
+	padding: 3px; text-align: right;
+}
+#username {
+	margin: 0px 0.4em 0.4em; padding: 0px; text-align: right; font-size: =
+0.82em; white-space: nowrap;
+}
+*[dir=3D'rtl'] #username {
+	text-align: left;
+}
+#username li {
+	padding: 0px 0.5em 0px 0px; display: inline;
+}
+#username form {
+	display: inline;
+}
+#username input {
+	background: rgb(231, 231, 231); margin: 0px; padding: 0px; border: =
+currentColor; border-image: none; color: blue; font-size: 0.82em; =
+display: inline; cursor: pointer;
+}
+#username input:hover {
+	color: red;
+}
+#searchform {
+	padding: 0px; color: rgb(255, 255, 255); margin-right: 0px; float: =
+right; white-space: nowrap;
+}
+*[dir=3D'rtl'] #searchform {
+	float: left;
+}
+#searchform input {
+	padding: 1px 1px 1px 3px; font-size: 0.85em;
+}
+#searchinput {
+	background: rgb(237, 244, 255); border: 2px solid rgb(32, 76, 141); =
+width: 130px; color: rgb(32, 76, 141); display: inline;
+}
+#titlesearch {
+	background: rgb(59, 113, 184); border: 1px solid rgb(32, 76, 141); =
+color: rgb(255, 255, 255); font-weight: bold; text-decoration: none; =
+display: inline; cursor: pointer;
+}
+#fullsearch {
+	background: rgb(59, 113, 184); border: 1px solid rgb(32, 76, 141); =
+color: rgb(255, 255, 255); font-weight: bold; text-decoration: none; =
+display: inline; cursor: pointer;
+}
+#searchform label {
+	display: block;
+}
+#searchform form div {
+	display: inline;
+}
+#pagetrail {
+	margin: 0.4em; padding: 0px 0.5em 0px 0px; text-align: right; =
+font-size: 0.82em;
+}
+*[dir=3D'rtl'] #pagetrail {
+	clear: left;
+}
+#interwiki {
+	font-size: 1em; margin-right: 0.5em; float: left;
+}
+*[dir=3D'rtl'] #interwiki {
+	font-size: 1em; margin-right: 5px; display: inline;
+}
+#interwiki span::after {
+	content: ":";
+}
+#locationline {
+	padding-right: 20px; padding-left: 20px;
+}
+*[dir=3D'rtl'] #locationline {
+	clear: left;
+}
+#pagelocation {
+	margin: 1em 0px 0.5em; padding: 0px;
+}
+#pagelocation li {
+	color: rgb(59, 99, 155); display: inline;
+}
+#pagetrail li {
+	margin: 0px; color: rgb(238, 238, 238); display: inline;
+}
+#pagetrail li::after {
+	content: " =BB ";
+}
+*[dir=3D'rtl'] #pagetrail li::after {
+	content: " =AB ";
+}
+#pagetrail li:last-child::after {
+	content: "";
+}
+#pagelocation li::after {
+	content: " =BB ";
+}
+*[dir=3D'rtl'] #pagelocation li::after {
+	content: " \\ ";
+}
+#pagelocation li:last-child::after {
+	content: "";
+}
+.navibar {
+	margin: 0px; padding: 0px 0px 0px 20px; height: 20px; clear: both; =
+font-size: 0.9em; display: block; -ms-zoom: 1;
+}
+.navibar li {
+	background-position: left top; border: 1px solid rgb(98, 142, 202); =
+padding-top: 5px; padding-bottom: 5px; margin-left: 3px; float: left; =
+display: inline; white-space: nowrap; background-image: =
+url("../img/moin-navibartop-bg.png"); background-repeat: repeat-x; =
+background-color: rgb(255, 255, 255);
+}
+*[dir=3D'rtl'] .navibar li {
+	float: right;
+}
+.navibar li.wikilink {
+=09
+}
+.navibar li.userlink {
+=09
+}
+.navibar li a {
+	padding: 4px 8px 5px;
+}
+.navibar a {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+.navibar a:visited {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+.navibar li.current a {
+	color: rgb(255, 255, 255); font-weight: bold; text-decoration: none;
+}
+.navibar li:hover {
+	background-position: left top; background-image: =
+url("../img/moin-navibartop-hover-bg.png"); background-repeat: repeat-x; =
+background-color: rgb(98, 142, 202);
+}
+.navibar li:hover a {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.navibar li:hover a:active {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.navibar li a:active {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+.navibar li.current {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.navibar li.current:hover {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.navibar li.current:hover a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.navibar li.current:active a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.pageline {
+	background: rgb(98, 142, 202); margin: 0px; padding: 0px; width: 100%; =
+height: 5px; line-height: 5px; clear: both;
+}
+.editbar {
+	background: rgb(237, 244, 255); margin: 0px; padding-left: 20px; clear: =
+both; font-size: 0.9em; display: block; white-space: nowrap;
+}
+.editbar form {
+	margin: 0px; display: inline;
+}
+.editbar form div {
+	margin: 0px; display: inline;
+}
+.editbar li {
+	padding: 0px; margin-right: 10px; display: inline;
+}
+*[dir=3D'rtl'] .editbar li {
+	float: right;
+}
+#header .editbar {
+	border-top-color: rgb(201, 201, 201); border-bottom-color: rgb(98, 142, =
+202); border-top-width: 1px; border-bottom-width: 2px; border-top-style: =
+solid; border-bottom-style: dotted;
+}
+#message {
+	margin: 2em 10%; padding: 1em 1em 1em 1.5em; border-top-color: rgb(210, =
+224, 246); border-bottom-color: rgb(210, 224, 246); border-top-width: =
+4px; border-bottom-width: 4px; border-top-style: solid; =
+border-bottom-style: solid; background-image: =
+url("../img/moin-msg-bg-blue.png"); background-color: rgb(236, 244, =
+255);
+}
+#message p {
+	margin: 0px; padding: 1em 2em; line-height: 1.5em; font-weight: bold;
+}
+#message div.buttons {
+	font-size: small; font-weight: normal; margin-top: 0.5em;
+}
+.dialog form {
+	margin: 0px 15px;
+}
+.dialog td {
+	padding: 5px; border: currentColor; border-image: none;
+}
+.dialog td.label {
+	width: 25%; text-align: right; font-weight: bold;
+}
+*[dir=3D'rtl'] .dialog td.label {
+	text-align: left;
+}
+.dialog td.content input {
+	width: 100%;
+}
+#page {
+	background: rgb(255, 255, 255); padding: 0px 20px;
+}
+#editor-textarea {
+	background: rgb(255, 255, 255); padding: 3px; border: 1px solid =
+rgb(140, 172, 187); width: 100%; color: black; font-family: monospace; =
+margin-top: 0.5em;
+}
+#editor-help {
+	background: rgb(255, 255, 255); padding: 3px; border: 1px solid =
+rgb(140, 172, 187); width: 100%; color: black; font-family: monospace; =
+margin-top: 0.5em;
+}
+#editor-help {
+	padding: 0px 1em 1em; border: 1px solid rgb(210, 224, 246); width: 97%; =
+font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+font-size: small; background-image: url("../img/moin-msg-bg-blue.png"); =
+background-color: rgb(236, 244, 255);
+}
+#editor-comment {
+	background: rgb(255, 255, 255); padding: 1px; border: 1px solid =
+rgb(140, 172, 187); width: 70%; color: black; font-size: 100%; =
+vertical-align: middle; display: inline;
+}
+#preview {
+	background: url("../img/draft.png"); padding: 10px 30px 20px; border: =
+1px solid rgb(108, 118, 128); margin-top: 0.5em;
+}
+#previewbelow {
+	background: url("../img/draft.png"); padding: 10px 30px 20px; border: =
+1px solid rgb(108, 118, 128); margin-top: 0.5em;
+}
+input.button {
+=09
+}
+#editortitle li {
+	font-size: 1.4em; font-weight: bold; margin-top: 0.5em; margin-bottom: =
+0.5em; margin-left: 20px;
+}
+#page h1 {
+	margin: 0px 0px 0.9em; border: currentColor; border-image: none; color: =
+rgb(255, 255, 255); line-height: 1.9em; padding-left: 0.7em; font-size: =
+1.7em; font-weight: bold; background-image: =
+url("../img/moin-h1-background.png"); background-color: rgb(32, 76, =
+141);
+}
+#page h2 {
+	margin: 1.6em 0px 0.8em; border: currentColor; border-image: none; =
+color: rgb(7, 43, 97); line-height: 1.8em; padding-left: 0.7em; =
+font-size: 1.4em; background-image: =
+url("../img/moin-h2-background.png");
+}
+#page .table-of-contents-heading {
+	margin: 0px 0px 10px; color: rgb(7, 43, 97); line-height: 1.8em; =
+padding-left: 0.7em; font-size: 1.3em; font-weight: bold; =
+background-image: url("../img/moin-h2-background.png"); =
+background-color: rgb(255, 255, 255);
+}
+#page h3 {
+	color: rgb(7, 43, 97); line-height: 1.6em; padding-left: 0.7em; =
+font-size: 1.25em; margin-top: 1em; margin-bottom: 0.5em; =
+border-bottom-color: rgb(218, 218, 218); border-bottom-width: 1px; =
+border-bottom-style: solid;
+}
+#page h4 {
+	color: rgb(41, 99, 166); line-height: 1.4em; padding-left: 0.7em; =
+font-size: 1.2em; margin-top: 1em; margin-bottom: 0.5em; =
+border-bottom-color: currentColor; border-bottom-width: medium; =
+border-bottom-style: none;
+}
+#page h5 {
+	color: rgb(7, 43, 97); line-height: 1.1em; padding-left: 1.5em; =
+font-size: 1.1em; font-weight: bold; margin-top: 1em; margin-bottom: =
+0.5em; border-bottom-color: currentColor; border-bottom-width: medium; =
+border-bottom-style: none;
+}
+#page h6 {
+	color: rgb(0, 0, 0); line-height: 1.1em; padding-left: 1.5em; =
+font-size: 1em; font-weight: bold; margin-top: 1em; margin-bottom: =
+0.5em; border-bottom-color: currentColor; border-bottom-width: medium; =
+border-bottom-style: none;
+}
+#page pre {
+	background: rgb(255, 250, 233); border-width: 1px 1px 1px 4px; =
+border-style: solid; border-color: rgb(229, 229, 229); white-space: pre;
+}
+#page tt {
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+white-space: pre;
+}
+#page p {
+	margin-left: 1.5em;
+}
+#page hr {
+	margin-left: 1.5em;
+}
+#page pre {
+	margin-left: 1.5em;
+}
+#page table {
+	margin-left: 1.5em;
+}
+#page .table-of-contents {
+	margin-left: 1.5em;
+}
+#page p {
+	line-height: 1.5em; padding-left: 0px; margin-bottom: 1.3em;
+}
+#page td > p {
+	margin: 0.5em !important;
+}
+td {
+	border: 1pt solid rgb(204, 204, 204);
+}
+.recentchanges td {
+	background: rgb(253, 253, 253); border-width: 1px medium medium 1px; =
+border-style: solid none none solid; border-color: rgb(237, 237, 237) =
+currentColor currentColor rgb(237, 237, 237); border-image: none; =
+font-size: 0.88em; vertical-align: top;
+}
+.rcdaybreak td {
+	border-width: 1pt medium; border-style: solid none; border-color: =
+rgb(204, 204, 204) currentColor; font-size: 0.88em; background-image: =
+url("../img/moin-h2-background.png"); background-color: rgb(255, 255, =
+255);
+}
+#page ul {
+	padding-left: 0.5em; margin-bottom: 0.3em; margin-left: 3em;
+}
+#page ol {
+	padding-left: 0.5em; margin-bottom: 0.3em; margin-left: 3em;
+}
+#page ul {
+	list-style: circle url("../img/moin-ul.png");
+}
+#page ol {
+	list-style-image: none !important;
+}
+#page ul li {
+	padding-left: 0em; margin-bottom: 0.3em;
+}
+#page ol li {
+	padding-left: 0em; margin-bottom: 0.3em;
+}
+#page ul ul {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ul ol {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ol ul {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ol ol {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ul li p {
+	line-height: 1.5em; margin-bottom: 0.3em; margin-left: 0px !important;
+}
+#page ol li p {
+	line-height: 1.5em; margin-bottom: 0.3em; margin-left: 0px !important;
+}
+.lmimg {
+	border-width: 1px 0px 1px 4px; border-style: solid; border-color: =
+rgb(207, 207, 207); padding: 1em 0px 1em 1em; width: 1%; =
+background-image: url("../img/moin-msg-bg-gray.png"); background-color: =
+rgb(236, 236, 236);
+}
+.lmtxt {
+	border-width: 1px 1px 1px 0px; border-style: solid solid solid none; =
+border-color: rgb(207, 207, 207) rgb(207, 207, 207) rgb(207, 207, 207) =
+currentColor; padding: 1em 1em 1em 0.5em; width: 99%; background-image: =
+url("../img/moin-msg-bg-gray.png"); background-color: rgb(236, 236, =
+236);
+}
+.red.lmimg {
+	border-color: rgb(224, 183, 183); background-image: =
+url("../img/moin-msg-bg-red.png"); background-color: rgb(255, 236, 236);
+}
+.red.lmtxt {
+	border-color: rgb(224, 183, 183); background-image: =
+url("../img/moin-msg-bg-red.png"); background-color: rgb(255, 236, 236);
+}
+.green.lmimg {
+	border-color: rgb(214, 246, 210); background-image: =
+url("../img/moin-msg-bg-green.png"); background-color: rgb(238, 255, =
+236);
+}
+.green.lmtxt {
+	border-color: rgb(214, 246, 210); background-image: =
+url("../img/moin-msg-bg-green.png"); background-color: rgb(238, 255, =
+236);
+}
+.violet.lmimg {
+	border-color: rgb(246, 210, 246); background-image: =
+url("../img/moin-msg-bg-violet.png"); background-color: rgb(255, 236, =
+255);
+}
+.violet.lmtxt {
+	border-color: rgb(246, 210, 246); background-image: =
+url("../img/moin-msg-bg-violet.png"); background-color: rgb(255, 236, =
+255);
+}
+.blue.lmimg {
+	border-color: rgb(210, 224, 246); background-image: =
+url("../img/moin-msg-bg-blue.png"); background-color: rgb(236, 244, =
+255);
+}
+.blue.lmtxt {
+	border-color: rgb(210, 224, 246); background-image: =
+url("../img/moin-msg-bg-blue.png"); background-color: rgb(236, 244, =
+255);
+}
+.orange.lmimg {
+	border-color: rgb(246, 231, 210); background-image: =
+url("../img/moin-msg-bg-orange.png"); background-color: rgb(255, 248, =
+236);
+}
+.orange.lmtxt {
+	border-color: rgb(246, 231, 210); background-image: =
+url("../img/moin-msg-bg-orange.png"); background-color: rgb(255, 248, =
+236);
+}
+.diff {
+	width: 99%;
+}
+.diff-header {
+	font-weight: bold;
+}
+.diff-title {
+	background: rgb(192, 192, 192);
+}
+.diff-added {
+	background: rgb(224, 255, 224); vertical-align: sub;
+}
+.diff-removed {
+	background: rgb(255, 255, 224); vertical-align: sub;
+}
+.diff-added span {
+	background: rgb(128, 255, 128);
+}
+.diff-removed span {
+	background: rgb(255, 255, 128);
+}
+table.navigation {
+	background: rgb(255, 255, 255); margin: 2px; float: right;
+}
+#footer {
+	padding-bottom: 1em; clear: both; margin-top: 20px; background-image: =
+url("../img/moin-header-background.png"); background-color: rgb(32, 76, =
+141);
+}
+#footer .editbar {
+	border-top-color: rgb(98, 142, 172); border-bottom-color: rgb(201, 201, =
+201); border-top-width: 2px; border-bottom-width: 1px; border-top-style: =
+dotted; border-bottom-style: solid;
+}
+#footer .navibar li {
+	background-position: left bottom; background-image: =
+url("../img/moin-navibarbottom-bg.png"); background-repeat: repeat-x; =
+background-color: rgb(255, 255, 255);
+}
+#footer .navibar li:hover {
+	background-position: left bottom; background-image: =
+url("../img/moin-navibarbottom-hover-bg.png"); background-repeat: =
+repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current:hover {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current:hover a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current:active a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#credits {
+	padding: 0px; text-align: center; color: rgb(238, 238, 238); font-size: =
+0.88em; margin-top: 2.5em;
+}
+#version {
+	padding: 0px; text-align: center; color: rgb(238, 238, 238); font-size: =
+0.88em; margin-top: 2.5em;
+}
+#timings {
+	padding: 0px; text-align: center; color: rgb(238, 238, 238); font-size: =
+0.88em; margin-top: 2.5em;
+}
+#credits a {
+	color: rgb(238, 238, 238);
+}
+#credits a:hover {
+	text-decoration: underline;
+}
+#credits li {
+	color: rgb(238, 238, 238); padding-right: 2px; margin-right: 4px; =
+display: inline;
+}
+#timings li {
+	color: rgb(238, 238, 238); padding-right: 2px; margin-right: 4px; =
+display: inline;
+}
+#credits img {
+	vertical-align: middle;
+}
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://wiki.centos.org/wiki/modern-CentOS/css/print.css
+
+html {
+	background: rgb(255, 255, 255); text-align: left; font-family: "DejaVu =
+Sans", "Liberation Sans", serif; font-size: 11pt;
+}
+body {
+	background: rgb(255, 255, 255); margin: 1.5cm;
+}
+a {
+	color: black; text-decoration: none;
+}
+a:visited {
+	color: black; text-decoration: none;
+}
+a.nonexistent {
+	color: black; text-decoration: none;
+}
+a.badinterwiki {
+	color: black; text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: underline;
+}
+.info a {
+	color: gray;
+}
+#page pre {
+	background: rgb(255, 255, 255); border: currentColor; border-image: =
+none; font-size: 10pt; white-space: pre-wrap;
+}
+#page tt {
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+white-space: pre;
+}
+a.interwiki::before {
+	content: attr(title) ":";
+}
+a.badinterwiki::before {
+	content: attr(title) ":";
+}
+a.interwiki img {
+	display: none;
+}
+a.badinterwiki img {
+	display: none;
+}
+.footnotes div {
+	width: 5em; border-top-color: gray; border-top-width: 1pt; =
+border-top-style: solid;
+}
+#header {
+	display: none;
+}
+#sidebar {
+	display: none;
+}
+#footer {
+	display: none;
+}
+#timings {
+	display: none;
+}
+#credits {
+	display: none;
+}
+#interwiki {
+	display: none;
+}
+#pagelocation {
+	display: none;
+}
+.lmimg {
+	background: rgb(255, 255, 255); border-width: 1px medium 1px 1px; =
+border-style: solid none solid solid; border-color: rgb(204, 204, 204) =
+currentColor rgb(204, 204, 204) rgb(204, 204, 204); padding: 1em 0px 1em =
+1em; border-image: none; width: 1%; color: rgb(0, 0, 0);
+}
+.lmtxt {
+	background: rgb(255, 255, 255); border-width: 1px 1px 1px medium; =
+border-style: solid solid solid none; border-color: rgb(204, 204, 204) =
+rgb(204, 204, 204) rgb(204, 204, 204) currentColor; padding: 1em 1em 1em =
+0.5em; border-image: none; width: 99%; color: rgb(0, 0, 0);
+}
+#page td > p {
+	margin: 0.5em !important;
+}
+td {
+	border: 1pt solid rgb(204, 204, 204); border-image: none;
+}
+#page ul {
+	padding-left: 0.5em; margin-bottom: 0.3em; margin-left: 3em;
+}
+#page ol {
+	padding-left: 0.5em; margin-bottom: 0.3em; margin-left: 3em;
+}
+#page ol {
+	list-style-image: none !important;
+}
+#page ul li {
+	padding-left: 0em; margin-bottom: 0.3em;
+}
+#page ol li {
+	padding-left: 0em; margin-bottom: 0.3em;
+}
+#page ul ul {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ul ol {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ol ul {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ol ol {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ul li p {
+	line-height: 1.5em; margin-bottom: 0.3em; margin-left: 0px !important;
+}
+#page ol li p {
+	line-height: 1.5em; margin-bottom: 0.3em; margin-left: 0px !important;
+}
+#page h1 {
+	margin: 0px 0px 0.9em; line-height: 1.9em;
+}
+#page h2 {
+	margin: 1.6em 0px 0.8em; line-height: 1.8em;
+}
+#page .table-of-contents-heading {
+	margin: 0px 0px 10px; line-height: 1.8em;
+}
+#page h3 {
+	line-height: 1.6em; margin-top: 0.5em;
+}
+#page h4 {
+	line-height: 1.4em; margin-top: 0.5em;
+}
+#page h5 {
+	line-height: 1.1em; margin-top: 0.5em;
+}
+#page h6 {
+	line-height: 1.1em; margin-top: 0.5em;
+}
+.table-of-contents {
+	background: none; border: currentColor; border-image: none;
+}
+.recentchanges td {
+	background: rgb(255, 255, 255); border: 1pt solid rgb(204, 204, 204); =
+border-image: none; font-size: 0.88em; vertical-align: top;
+}
+.rcdaybreak td {
+	background: url("../img/moin-h2-background.png") rgb(248, 248, 248);
+}
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://wiki.centos.org/HowTos/Xen/screen.css
+
+html {
+	margin: 0px 4%; line-height: 1.25em; font-family: "DejaVu Sans", =
+"Liberation Sans", sans-serif; font-size: 0.85em; background-image: =
+url("../img/moin-html-background.png"); background-color: rgb(255, 255, =
+255);
+}
+body {
+	background: rgb(255, 255, 255); padding: 0px; border: 10px solid =
+rgb(255, 255, 255);
+}
+a:link {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+a:hover {
+	color: green; text-decoration: underline;
+}
+a:active {
+	color: green; text-decoration: underline;
+}
+a:visited {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+a:hover:visited {
+	color: green; text-decoration: underline;
+}
+a.nonexistent {
+	color: gray;
+}
+a.badinterwiki {
+	color: gray;
+}
+#username a:link {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#username a:hover {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#username a:active {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#username a:visited {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#username a:hover:visited {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#pagetrail a:link {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#pagetrail a:hover {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#pagetrail a:active {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#pagetrail a:visited {
+	color: rgb(238, 238, 238); text-decoration: none;
+}
+#pagetrail a:hover:visited {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+input {
+=09
+}
+textarea {
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+font-size: 1.4em;
+}
+.disabled {
+	color: gray;
+}
+#header {
+	margin: 0px; padding: 0px; border: currentColor; border-image: none; =
+line-height: 1em; background-image: =
+url("../img/moin-header-background.png"); background-color: rgb(32, 76, =
+141);
+}
+#logo {
+	margin: 10px; padding: 0px; line-height: 1em; font-size: 1.4em; =
+font-weight: bold; float: left;
+}
+*[dir=3D'rtl'] #logo {
+	float: right;
+}
+#logo img {
+	vertical-align: middle;
+}
+#logo a {
+	color: white; text-decoration: none;
+}
+#header .googlecontent {
+	padding: 3px; text-align: right;
+}
+#username {
+	margin: 0px 0.4em 0.4em; padding: 0px; text-align: right; font-size: =
+0.82em; white-space: nowrap;
+}
+*[dir=3D'rtl'] #username {
+	text-align: left;
+}
+#username li {
+	padding: 0px 0.5em 0px 0px; display: inline;
+}
+#username form {
+	display: inline;
+}
+#username input {
+	background: rgb(231, 231, 231); margin: 0px; padding: 0px; border: =
+currentColor; border-image: none; color: blue; font-size: 0.82em; =
+display: inline; cursor: pointer;
+}
+#username input:hover {
+	color: red;
+}
+#searchform {
+	padding: 0px; color: rgb(255, 255, 255); margin-right: 0px; float: =
+right; white-space: nowrap;
+}
+*[dir=3D'rtl'] #searchform {
+	float: left;
+}
+#searchform input {
+	padding: 1px 1px 1px 3px; font-size: 0.85em;
+}
+#searchinput {
+	background: rgb(237, 244, 255); border: 2px solid rgb(32, 76, 141); =
+width: 130px; color: rgb(32, 76, 141); display: inline;
+}
+#titlesearch {
+	background: rgb(59, 113, 184); border: 1px solid rgb(32, 76, 141); =
+color: rgb(255, 255, 255); font-weight: bold; text-decoration: none; =
+display: inline; cursor: pointer;
+}
+#fullsearch {
+	background: rgb(59, 113, 184); border: 1px solid rgb(32, 76, 141); =
+color: rgb(255, 255, 255); font-weight: bold; text-decoration: none; =
+display: inline; cursor: pointer;
+}
+#searchform label {
+	display: block;
+}
+#searchform form div {
+	display: inline;
+}
+#pagetrail {
+	margin: 0.4em; padding: 0px 0.5em 0px 0px; text-align: right; =
+font-size: 0.82em;
+}
+*[dir=3D'rtl'] #pagetrail {
+	clear: left;
+}
+#interwiki {
+	font-size: 1em; margin-right: 0.5em; float: left;
+}
+*[dir=3D'rtl'] #interwiki {
+	font-size: 1em; margin-right: 5px; display: inline;
+}
+#interwiki span::after {
+	content: ":";
+}
+#locationline {
+	padding-right: 20px; padding-left: 20px;
+}
+*[dir=3D'rtl'] #locationline {
+	clear: left;
+}
+#pagelocation {
+	margin: 1em 0px 0.5em; padding: 0px;
+}
+#pagelocation li {
+	color: rgb(59, 99, 155); display: inline;
+}
+#pagetrail li {
+	margin: 0px; color: rgb(238, 238, 238); display: inline;
+}
+#pagetrail li::after {
+	content: " =BB ";
+}
+*[dir=3D'rtl'] #pagetrail li::after {
+	content: " =AB ";
+}
+#pagetrail li:last-child::after {
+	content: "";
+}
+#pagelocation li::after {
+	content: " =BB ";
+}
+*[dir=3D'rtl'] #pagelocation li::after {
+	content: " \\ ";
+}
+#pagelocation li:last-child::after {
+	content: "";
+}
+.navibar {
+	margin: 0px; padding: 0px 0px 0px 20px; height: 20px; clear: both; =
+font-size: 0.9em; display: block; -ms-zoom: 1;
+}
+.navibar li {
+	background-position: left top; border: 1px solid rgb(98, 142, 202); =
+padding-top: 5px; padding-bottom: 5px; margin-left: 3px; float: left; =
+display: inline; white-space: nowrap; background-image: =
+url("../img/moin-navibartop-bg.png"); background-repeat: repeat-x; =
+background-color: rgb(255, 255, 255);
+}
+*[dir=3D'rtl'] .navibar li {
+	float: right;
+}
+.navibar li.wikilink {
+=09
+}
+.navibar li.userlink {
+=09
+}
+.navibar li a {
+	padding: 4px 8px 5px;
+}
+.navibar a {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+.navibar a:visited {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+.navibar li.current a {
+	color: rgb(255, 255, 255); font-weight: bold; text-decoration: none;
+}
+.navibar li:hover {
+	background-position: left top; background-image: =
+url("../img/moin-navibartop-hover-bg.png"); background-repeat: repeat-x; =
+background-color: rgb(98, 142, 202);
+}
+.navibar li:hover a {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.navibar li:hover a:active {
+	color: rgb(255, 255, 255); text-decoration: none;
+}
+.navibar li a:active {
+	color: rgb(32, 76, 141); text-decoration: none;
+}
+.navibar li.current {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.navibar li.current:hover {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.navibar li.current:hover a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.navibar li.current:active a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibartop-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+.pageline {
+	background: rgb(98, 142, 202); margin: 0px; padding: 0px; width: 100%; =
+height: 5px; line-height: 5px; clear: both;
+}
+.editbar {
+	background: rgb(237, 244, 255); margin: 0px; padding-left: 20px; clear: =
+both; font-size: 0.9em; display: block; white-space: nowrap;
+}
+.editbar form {
+	margin: 0px; display: inline;
+}
+.editbar form div {
+	margin: 0px; display: inline;
+}
+.editbar li {
+	padding: 0px; margin-right: 10px; display: inline;
+}
+*[dir=3D'rtl'] .editbar li {
+	float: right;
+}
+#header .editbar {
+	border-top-color: rgb(201, 201, 201); border-bottom-color: rgb(98, 142, =
+202); border-top-width: 1px; border-bottom-width: 2px; border-top-style: =
+solid; border-bottom-style: dotted;
+}
+#message {
+	margin: 2em 10%; padding: 1em 1em 1em 1.5em; border-top-color: rgb(210, =
+224, 246); border-bottom-color: rgb(210, 224, 246); border-top-width: =
+4px; border-bottom-width: 4px; border-top-style: solid; =
+border-bottom-style: solid; background-image: =
+url("../img/moin-msg-bg-blue.png"); background-color: rgb(236, 244, =
+255);
+}
+#message p {
+	margin: 0px; padding: 1em 2em; line-height: 1.5em; font-weight: bold;
+}
+#message div.buttons {
+	font-size: small; font-weight: normal; margin-top: 0.5em;
+}
+.dialog form {
+	margin: 0px 15px;
+}
+.dialog td {
+	padding: 5px; border: currentColor; border-image: none;
+}
+.dialog td.label {
+	width: 25%; text-align: right; font-weight: bold;
+}
+*[dir=3D'rtl'] .dialog td.label {
+	text-align: left;
+}
+.dialog td.content input {
+	width: 100%;
+}
+#page {
+	background: rgb(255, 255, 255); padding: 0px 20px;
+}
+#editor-textarea {
+	background: rgb(255, 255, 255); padding: 3px; border: 1px solid =
+rgb(140, 172, 187); width: 100%; color: black; font-family: monospace; =
+margin-top: 0.5em;
+}
+#editor-help {
+	background: rgb(255, 255, 255); padding: 3px; border: 1px solid =
+rgb(140, 172, 187); width: 100%; color: black; font-family: monospace; =
+margin-top: 0.5em;
+}
+#editor-help {
+	padding: 0px 1em 1em; border: 1px solid rgb(210, 224, 246); width: 97%; =
+font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+font-size: small; background-image: url("../img/moin-msg-bg-blue.png"); =
+background-color: rgb(236, 244, 255);
+}
+#editor-comment {
+	background: rgb(255, 255, 255); padding: 1px; border: 1px solid =
+rgb(140, 172, 187); width: 70%; color: black; font-size: 100%; =
+vertical-align: middle; display: inline;
+}
+#preview {
+	background: url("../img/draft.png"); padding: 10px 30px 20px; border: =
+1px solid rgb(108, 118, 128); margin-top: 0.5em;
+}
+#previewbelow {
+	background: url("../img/draft.png"); padding: 10px 30px 20px; border: =
+1px solid rgb(108, 118, 128); margin-top: 0.5em;
+}
+input.button {
+=09
+}
+#editortitle li {
+	font-size: 1.4em; font-weight: bold; margin-top: 0.5em; margin-bottom: =
+0.5em; margin-left: 20px;
+}
+#page h1 {
+	margin: 0px 0px 0.9em; border: currentColor; border-image: none; color: =
+rgb(255, 255, 255); line-height: 1.9em; padding-left: 0.7em; font-size: =
+1.7em; font-weight: bold; background-image: =
+url("../img/moin-h1-background.png"); background-color: rgb(32, 76, =
+141);
+}
+#page h2 {
+	margin: 1.6em 0px 0.8em; border: currentColor; border-image: none; =
+color: rgb(7, 43, 97); line-height: 1.8em; padding-left: 0.7em; =
+font-size: 1.4em; background-image: =
+url("../img/moin-h2-background.png");
+}
+#page .table-of-contents-heading {
+	margin: 0px 0px 10px; color: rgb(7, 43, 97); line-height: 1.8em; =
+padding-left: 0.7em; font-size: 1.3em; font-weight: bold; =
+background-image: url("../img/moin-h2-background.png"); =
+background-color: rgb(255, 255, 255);
+}
+#page h3 {
+	color: rgb(7, 43, 97); line-height: 1.6em; padding-left: 0.7em; =
+font-size: 1.25em; margin-top: 1em; margin-bottom: 0.5em; =
+border-bottom-color: rgb(218, 218, 218); border-bottom-width: 1px; =
+border-bottom-style: solid;
+}
+#page h4 {
+	color: rgb(41, 99, 166); line-height: 1.4em; padding-left: 0.7em; =
+font-size: 1.2em; margin-top: 1em; margin-bottom: 0.5em; =
+border-bottom-color: currentColor; border-bottom-width: medium; =
+border-bottom-style: none;
+}
+#page h5 {
+	color: rgb(7, 43, 97); line-height: 1.1em; padding-left: 1.5em; =
+font-size: 1.1em; font-weight: bold; margin-top: 1em; margin-bottom: =
+0.5em; border-bottom-color: currentColor; border-bottom-width: medium; =
+border-bottom-style: none;
+}
+#page h6 {
+	color: rgb(0, 0, 0); line-height: 1.1em; padding-left: 1.5em; =
+font-size: 1em; font-weight: bold; margin-top: 1em; margin-bottom: =
+0.5em; border-bottom-color: currentColor; border-bottom-width: medium; =
+border-bottom-style: none;
+}
+#page pre {
+	background: rgb(255, 250, 233); border-width: 1px 1px 1px 4px; =
+border-style: solid; border-color: rgb(229, 229, 229); white-space: pre;
+}
+#page tt {
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; =
+white-space: pre;
+}
+#page p {
+	margin-left: 1.5em;
+}
+#page hr {
+	margin-left: 1.5em;
+}
+#page pre {
+	margin-left: 1.5em;
+}
+#page table {
+	margin-left: 1.5em;
+}
+#page .table-of-contents {
+	margin-left: 1.5em;
+}
+#page p {
+	line-height: 1.5em; padding-left: 0px; margin-bottom: 1.3em;
+}
+#page td > p {
+	margin: 0.5em !important;
+}
+td {
+	border: 1pt solid rgb(204, 204, 204);
+}
+.recentchanges td {
+	background: rgb(253, 253, 253); border-width: 1px medium medium 1px; =
+border-style: solid none none solid; border-color: rgb(237, 237, 237) =
+currentColor currentColor rgb(237, 237, 237); border-image: none; =
+font-size: 0.88em; vertical-align: top;
+}
+.rcdaybreak td {
+	border-width: 1pt medium; border-style: solid none; border-color: =
+rgb(204, 204, 204) currentColor; font-size: 0.88em; background-image: =
+url("../img/moin-h2-background.png"); background-color: rgb(255, 255, =
+255);
+}
+#page ul {
+	padding-left: 0.5em; margin-bottom: 0.3em; margin-left: 3em;
+}
+#page ol {
+	padding-left: 0.5em; margin-bottom: 0.3em; margin-left: 3em;
+}
+#page ul {
+	list-style: circle url("../img/moin-ul.png");
+}
+#page ol {
+	list-style-image: none !important;
+}
+#page ul li {
+	padding-left: 0em; margin-bottom: 0.3em;
+}
+#page ol li {
+	padding-left: 0em; margin-bottom: 0.3em;
+}
+#page ul ul {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ul ol {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ol ul {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ol ol {
+	margin-top: 0.3em; margin-left: 1.5em;
+}
+#page ul li p {
+	line-height: 1.5em; margin-bottom: 0.3em; margin-left: 0px !important;
+}
+#page ol li p {
+	line-height: 1.5em; margin-bottom: 0.3em; margin-left: 0px !important;
+}
+.lmimg {
+	border-width: 1px 0px 1px 4px; border-style: solid; border-color: =
+rgb(207, 207, 207); padding: 1em 0px 1em 1em; width: 1%; =
+background-image: url("../img/moin-msg-bg-gray.png"); background-color: =
+rgb(236, 236, 236);
+}
+.lmtxt {
+	border-width: 1px 1px 1px 0px; border-style: solid solid solid none; =
+border-color: rgb(207, 207, 207) rgb(207, 207, 207) rgb(207, 207, 207) =
+currentColor; padding: 1em 1em 1em 0.5em; width: 99%; background-image: =
+url("../img/moin-msg-bg-gray.png"); background-color: rgb(236, 236, =
+236);
+}
+.red.lmimg {
+	border-color: rgb(224, 183, 183); background-image: =
+url("../img/moin-msg-bg-red.png"); background-color: rgb(255, 236, 236);
+}
+.red.lmtxt {
+	border-color: rgb(224, 183, 183); background-image: =
+url("../img/moin-msg-bg-red.png"); background-color: rgb(255, 236, 236);
+}
+.green.lmimg {
+	border-color: rgb(214, 246, 210); background-image: =
+url("../img/moin-msg-bg-green.png"); background-color: rgb(238, 255, =
+236);
+}
+.green.lmtxt {
+	border-color: rgb(214, 246, 210); background-image: =
+url("../img/moin-msg-bg-green.png"); background-color: rgb(238, 255, =
+236);
+}
+.violet.lmimg {
+	border-color: rgb(246, 210, 246); background-image: =
+url("../img/moin-msg-bg-violet.png"); background-color: rgb(255, 236, =
+255);
+}
+.violet.lmtxt {
+	border-color: rgb(246, 210, 246); background-image: =
+url("../img/moin-msg-bg-violet.png"); background-color: rgb(255, 236, =
+255);
+}
+.blue.lmimg {
+	border-color: rgb(210, 224, 246); background-image: =
+url("../img/moin-msg-bg-blue.png"); background-color: rgb(236, 244, =
+255);
+}
+.blue.lmtxt {
+	border-color: rgb(210, 224, 246); background-image: =
+url("../img/moin-msg-bg-blue.png"); background-color: rgb(236, 244, =
+255);
+}
+.orange.lmimg {
+	border-color: rgb(246, 231, 210); background-image: =
+url("../img/moin-msg-bg-orange.png"); background-color: rgb(255, 248, =
+236);
+}
+.orange.lmtxt {
+	border-color: rgb(246, 231, 210); background-image: =
+url("../img/moin-msg-bg-orange.png"); background-color: rgb(255, 248, =
+236);
+}
+.diff {
+	width: 99%;
+}
+.diff-header {
+	font-weight: bold;
+}
+.diff-title {
+	background: rgb(192, 192, 192);
+}
+.diff-added {
+	background: rgb(224, 255, 224); vertical-align: sub;
+}
+.diff-removed {
+	background: rgb(255, 255, 224); vertical-align: sub;
+}
+.diff-added span {
+	background: rgb(128, 255, 128);
+}
+.diff-removed span {
+	background: rgb(255, 255, 128);
+}
+table.navigation {
+	background: rgb(255, 255, 255); margin: 2px; float: right;
+}
+#footer {
+	padding-bottom: 1em; clear: both; margin-top: 20px; background-image: =
+url("../img/moin-header-background.png"); background-color: rgb(32, 76, =
+141);
+}
+#footer .editbar {
+	border-top-color: rgb(98, 142, 172); border-bottom-color: rgb(201, 201, =
+201); border-top-width: 2px; border-bottom-width: 1px; border-top-style: =
+dotted; border-bottom-style: solid;
+}
+#footer .navibar li {
+	background-position: left bottom; background-image: =
+url("../img/moin-navibarbottom-bg.png"); background-repeat: repeat-x; =
+background-color: rgb(255, 255, 255);
+}
+#footer .navibar li:hover {
+	background-position: left bottom; background-image: =
+url("../img/moin-navibarbottom-hover-bg.png"); background-repeat: =
+repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current:hover {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current:hover a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#footer .navibar li.current:active a {
+	background-position: left top; color: rgb(255, 255, 255); =
+background-image: url("../img/moin-navibarbottom-hover-bg.png"); =
+background-repeat: repeat-x; background-color: rgb(98, 142, 202);
+}
+#credits {
+	padding: 0px; text-align: center; color: rgb(238, 238, 238); font-size: =
+0.88em; margin-top: 2.5em;
+}
+#version {
+	padding: 0px; text-align: center; color: rgb(238, 238, 238); font-size: =
+0.88em; margin-top: 2.5em;
+}
+#timings {
+	padding: 0px; text-align: center; color: rgb(238, 238, 238); font-size: =
+0.88em; margin-top: 2.5em;
+}
+#credits a {
+	color: rgb(238, 238, 238);
+}
+#credits a:hover {
+	text-decoration: underline;
+}
+#credits li {
+	color: rgb(238, 238, 238); padding-right: 2px; margin-right: 4px; =
+display: inline;
+}
+#timings li {
+	color: rgb(238, 238, 238); padding-right: 2px; margin-right: 4px; =
+display: inline;
+}
+#credits img {
+	vertical-align: middle;
+}
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Location: http://wiki.centos.org/wiki/modern-CentOS/css/projection.css
+
+@import url( screen.css );
+html {
+	line-height: 1.8em;
+}
+body {
+	font-size: 18pt;
+}
+b {
+	font-size: 18pt;
+}
+em {
+	font-size: 18pt;
+}
+a {
+	font-size: 18pt;
+}
+span {
+	font-size: 18pt;
+}
+div {
+	font-size: 18pt;
+}
+p {
+	font-size: 18pt;
+}
+td {
+	font-size: 18pt;
+}
+h1 {
+	font-size: 26pt;
+}
+h2 {
+	font-size: 22pt;
+}
+h3 {
+	font-size: 20pt;
+}
+h4 {
+	font-size: 18pt;
+}
+h5 {
+	font-size: 16pt;
+}
+h6 {
+	font-size: 14pt;
+}
+tt {
+	font-size: 16pt;
+}
+pre {
+	font-size: 16pt;
+}
+sup {
+	font-size: 12pt;
+}
+sub {
+	font-size: 12pt;
+}
+table.navigation {
+	margin: 2px; float: right;
+}
+.navigation td {
+	padding: 2px; font-size: 10pt;
+}
+.navigation a {
+	padding: 2px; font-size: 10pt;
+}
+#interwiki {
+	display: none;
+}
+#pagelocation {
+	display: none;
+}
+#pageinfo {
+	display: none;
+}
+
+------=_NextPart_000_0000_01D0B664.62558120
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://wiki.centos.org/wiki/common/js/common.js
+
+//=0A=
+// MoinMoin commonly used JavaScript functions=0A=
+//=0A=
+=0A=
+// use this instead of assigning to window.onload directly:=0A=
+function addLoadEvent(func) {=0A=
+  // alert("addLoadEvent " + func)=0A=
+  var oldonload =3D window.onload;=0A=
+  if (typeof window.onload !=3D 'function') {=0A=
+    window.onload =3D func;=0A=
+  } else {=0A=
+    window.onload =3D function() {=0A=
+      oldonload();=0A=
+      func();=0A=
+    }=0A=
+  }=0A=
+}=0A=
+=0A=
+function can_use_gui_editor() {=0A=
+    var sAgent =3D navigator.userAgent.toLowerCase();=0A=
+ =0A=
+    if (sAgent.indexOf("msie") !=3D -1 && sAgent.indexOf("mac") =3D=3D =
+-1 &&=0A=
+        sAgent.indexOf("opera") =3D=3D -1 ) {=0A=
+        // Internet Explorer=0A=
+        var sBrowserVersion =3D navigator.appVersion.match(/MSIE =
+(.\..)/)[1];=0A=
+        return ( sBrowserVersion >=3D 5.5 );=0A=
+    } else if (navigator.product =3D=3D "Gecko" && =0A=
+               navigator.productSub >=3D 20030210) {=0A=
+        // Gecko=0A=
+        return true;=0A=
+    }=0A=
+    // else if (sAgent.indexOf("safari") !=3D -1 ) {=0A=
+    //    // Safari - build must be at least 312 (1.3)=0A=
+    //    return (sAgent.match( /safari\/(\d+)/ )[1] >=3D 312 );=0A=
+    // } =0A=
+    else {=0A=
+        // Unknown browser, assume gui editor is not compatible=0A=
+        return false;=0A=
+    }=0A=
+}=0A=
+=0A=
+=0A=
+function update_edit_links() {=0A=
+    // Update editlink according if if the browser is compatible=0A=
+    if (can_use_gui_editor() =3D=3D false){=0A=
+        //alert("update_edit_links: can't use gui editor");=0A=
+        return;=0A=
+    }=0A=
+    var editlinks =3D document.getElementsByName("editlink");=0A=
+    for (i =3D 0; i < editlinks.length; i++) {=0A=
+        var link =3D editlinks[i];=0A=
+        href =3D =
+link.href.replace('editor=3Dtextonly','editor=3Dguipossible');=0A=
+        link.href =3D href;=0A=
+        //alert("update_edit_links: modified to guipossible");=0A=
+    }=0A=
+}=0A=
+=0A=
+=0A=
+function add_gui_editor_links() {=0A=
+    // Add gui editor link after the text editor link=0A=
+    =0A=
+    // If the variable is not set or browser is not compatible, exit=0A=
+    try {gui_editor_link_href}=0A=
+    catch (e) {=0A=
+        //alert("add_gui_editor_links: gui_editor_link_href not here");=0A=
+        return=0A=
+    }=0A=
+    if (can_use_gui_editor() =3D=3D false){=0A=
+        //alert("add_gui_editor_links: can't use gui_editor");=0A=
+        return;=0A=
+    }=0A=
+    var all =3D document.getElementsByName('texteditlink');=0A=
+    for (i =3D 0; i < all.length; i++) {=0A=
+        var textEditorLink =3D all[i];=0A=
+        // Create a list item with a link=0A=
+        var guiEditorLink =3D document.createElement('a');=0A=
+        guiEditorLink.href =3D gui_editor_link_href;=0A=
+        var text =3D document.createTextNode(gui_editor_link_text);=0A=
+        guiEditorLink.appendChild(text);=0A=
+        var listItem =3D document.createElement('li')=0A=
+        listItem.appendChild(guiEditorLink);=0A=
+        // Insert in the editbar=0A=
+        var editbar =3D textEditorLink.parentNode.parentNode=0A=
+        var nextListItem =3D textEditorLink.parentNode.nextSibling;=0A=
+        editbar.insertBefore(listItem, nextListItem);=0A=
+        //alert("add_gui_editor_links: added gui editor link");=0A=
+    }=0A=
+}=0A=
+ =0A=
+=0A=
+function show_switch2gui() {=0A=
+    // Show switch to gui editor link if the browser is compatible=0A=
+    if (can_use_gui_editor() =3D=3D false) return;=0A=
+    =0A=
+    var switch2gui =3D document.getElementById('switch2gui')=0A=
+    if (switch2gui) {=0A=
+        switch2gui.style.display =3D 'inline';=0A=
+    }=0A=
+}=0A=
+=0A=
+=0A=
+function load() {=0A=
+    // Do not name this "onload", it does not work with IE :-)=0A=
+    // TODO: create separate onload for each type of view and set the=0A=
+    // correct function name in the html. =0A=
+    // e.g <body onlod=3D'editor_onload()'>=0A=
+    =0A=
+    // Page view stuff=0A=
+    update_edit_links();=0A=
+    add_gui_editor_links();=0A=
+    =0A=
+    // Editor stuff=0A=
+    show_switch2gui();=0A=
+}=0A=
+=0A=
+=0A=
+function before_unload(evt) {=0A=
+    // TODO: Better to set this in the editor html, as it does not make=0A=
+    // sense elsehwere.=0A=
+    // confirmleaving is available when editing=0A=
+    try {return confirmleaving();}=0A=
+    catch (e) {}=0A=
+}=0A=
+=0A=
+// Initialize after loading the page=0A=
+addLoadEvent(load)=0A=
+=0A=
+// Catch before unloading the page=0A=
+window.onbeforeunload =3D before_unload=0A=
+=0A=
+
+------=_NextPart_000_0000_01D0B664.62558120--
